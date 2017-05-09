@@ -1,8 +1,7 @@
-
-public class Game {
-
-	public Game() {
-		// TODO Auto-generated constructor stub
+ class Game
+{
+	public static void main(String[] args)
+	{
+		new Window();
 	}
-
 }
