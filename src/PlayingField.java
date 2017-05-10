@@ -1,9 +1,10 @@
 public class PlayingField
 {
-	private static int height = 16;
-	private static int width = 12;
+	private static int height = 22;
+	private static int width = 10;
 	private BlockSquare[][] field = new BlockSquare[height][width];
 	private int numBlockSpecies = 1;
+	private int bufferCell =  2;
 	
 	public BlockSquare[][] getField()
 	{
@@ -14,20 +15,22 @@ public class PlayingField
 	{
 		Block block = null;
 		int rand = (int) (Math.random() * numBlockSpecies) + 1;
+		
 		switch(rand)
 		{
 		case 1: block = new BlockL();
 		break;
 		}
 		
-		for(int i = 0; i < field.length; i++)
+		for(int i = bufferCell; i < block.getBlockArray().length; i++)
 		{
 			int mid = field[0].length / 2;
 			
-			//for(int j = mid - block.getMaxLength(); j < field[0].length; j++)
-			//{
-				
-			//}
+			for(int j = mid - block.getBlockArray()[0].length; j < field[0].length; j++)
+			{
+				if(block.getBlockArray()[i][j] != null)
+					field[i][j] = block.getBlockArray()[i][j];
+			}
 		}
 	}
 	
