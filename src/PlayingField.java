@@ -36,14 +36,33 @@ public class PlayingField
 	
 	public void clearLines()
 	{
-		
-	}
-	public static int getHeight()
-	{ 
-		return height;
-	}
-	public static int getWidth()
-	{
-		return width;
+		for(int i = 0; i < field.length; i++)
+		{
+			//check if line should be cleared
+			boolean isFilled = true;
+			for(int j = 0; j < field[0].length; j++)
+			{
+				if(field[i][j] == null)
+					isFilled = false;
+			}
+			
+			//clears line
+			if(isFilled)
+			{
+				for(int j = 0; j < field[0].length; j++)
+				{
+					field[i][j] = null;
+				}
+			}
+			
+			//move everything above the cleared line down
+			for(int k = i; k > 0; i--)
+			{
+				for(int j = 0; j < field[0].length; i++)
+				{
+					field[i][j] = field[i+1][j];
+				}
+			}
+		}
 	}
 }
