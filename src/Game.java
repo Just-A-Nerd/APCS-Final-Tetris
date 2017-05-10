@@ -4,8 +4,4 @@
 	{
 		new Window();
 	}
-	public void update()
-	{
-		
-	}
 }
