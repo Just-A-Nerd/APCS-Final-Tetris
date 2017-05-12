@@ -8,7 +8,7 @@ public class BlockL implements Block
 	
 	public BlockL()
 	{
-		BlockSquare b = new BlockSquare(fillColor, outlineColor);
+		BlockSquare b = new BlockSquare(fillColor, outlineColor, "L");
 		block[0][0] = b;
 		block[0][1] = b;	//	***
 		block[0][2] = b;	//  *--
