@@ -2,7 +2,10 @@ public class BlockManipulator
 {
 	public static void moveLeft()
 	{
-		System.out.println("Block moving left");
+		switch(PlayingField.)
+		{
+			
+		}
 	}
 	
 	public static void moveRight()

@@ -15,9 +15,15 @@ public class GraphicsDrawer
 		g2.setPaint(new Color(255, 255, 255));
 		g2.drawLine(50, 50, 50 , 50 + PlayingField.getHeight()* (blockSize - 2));
 		g2.drawLine(50, 50 + PlayingField.getHeight() * (blockSize - 2), 50 + PlayingField.getWidth() * blockSize , 50 + PlayingField.getHeight() * (blockSize - 2));
-		g2.drawLine(50 + PlayingField.getWidth() * blockSize, 50, 50 + PlayingField.getWidth() * blockSize,  50 + PlayingField.getHeight() * (blockSize - 2));	
-		//BlockSquare Array Filler
-		
+		g2.drawLine(50 + PlayingField.getWidth() * blockSize, 50, 50 + PlayingField.getWidth() * blockSize,  50 + PlayingField.getHeight() * (blockSize - 2));
+		BlockSquare[][] field = PlayingField.getField()
+		for(int i = 2; i < 22; i++)
+		{
+			for(int j = 0; j < 10; j++)
+			{
+				
+			}
+		}
 		
 		
 		
