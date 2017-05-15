@@ -2,20 +2,42 @@ public class BlockManipulator
 {
 	public static void moveLeft()
 	{
-		switch(PlayingField.)
+		boolean canMove = true;
+		for(int i = 0; i < PlayingField.getField().length; i++)
 		{
-			
+			for(int j = 1; j < PlayingField.getField()[0].length; j++)
+			{
+				if(PlayingField.getField()[i][j].getName() != "x")
+				{
+					if(PlayingField.getField()[i][j-1] != null)
+						canMove = false;
+				}
+			}
 		}
+			
+		if(canMove)
+		{
+			for(int i = 0; i < PlayingField.getField().length; i++)
+			{
+				for(int j = 1; j < PlayingField.getField()[0].length; j++)
+				{
+					if(PlayingField.getField()[i][j].getName() != "x")
+					{
+						PlayingField.getField()[i][j-1] = PlayingField.getField()[i][j];
+						PlayingField.getField()[i][j] = null;
+					}
+				}
+			}
 	}
 	
 	public static void moveRight()
 	{
-		System.out.println("Block moving right");
+		
 	}
 	
 	public static void moveDown()
 	{
-		System.out.println("Block moving down");
+		
 	}
 	
 	public static void spinLeft()
