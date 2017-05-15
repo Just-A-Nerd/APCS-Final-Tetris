@@ -4,11 +4,16 @@ public class PlayingField
 	private static int width = 10;
 	private static BlockSquare[][] field = new BlockSquare[height][width];
 	private int numBlockSpecies = 1;
-	private int bufferCell =  2;
+	private static int bufferCell =  2;
 	
 	public static BlockSquare[][] getField()
 	{
 		return field;
+	}
+	
+	public static int getBuffer()
+	{
+		return bufferCell;
 	}
 	
 	public void makeBlockAppear()

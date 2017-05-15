@@ -45,11 +45,11 @@ public class BlockManipulator
 	
 	public static void spinLeft()
 	{
-		System.out.println("Block spinning left");
+		
 	}
 	
 	public static void spinRight()
 	{
-		System.out.println("Block spinning right");
+		
 	}
 }
