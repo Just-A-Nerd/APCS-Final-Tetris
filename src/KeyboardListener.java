@@ -1,34 +1,22 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class KeyboardListener implements KeyListener
-{
-	private final String moveLeftKey = "Left";
-	private final String moveRightKey = "Right";
-	private final String moveDownKey = "Down";
-	private final String spinLeftKey = "X";
-	private final String spinRightKey = "Z";
-	
-		public void keyPressed(KeyEvent e)
-		{
-			//System.out.println("keyPressed="+KeyEvent.getKeyText(e.getKeyCode()));
-			
-			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveLeftKey))
-				BlockManipulator.moveLeft();
-			
-			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveRightKey))
-				BlockManipulator.moveRight();
-			
-			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveDownKey))
-				BlockManipulator.moveDown();
-			
-			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinLeftKey))
-				BlockManipulator.spinLeft();
-			
-			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinRightKey))
-				BlockManipulator.spinRight();
+public class KeyboardListener implements KeyListener {
+		@Override
+		public void keyTyped(KeyEvent e) {
 		}
-		
-		public void keyTyped(KeyEvent e){}
-		public void keyReleased(KeyEvent e){}
-}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			System.out.println("keyPressed="+KeyEvent.getKeyText(e.getKeyCode()));
+			if(KeyEvent.getKeyText(e.getKeyCode()).equals("Up"))
+			{
+				System.out.println("HI");
+			}
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			System.out.println("keyReleased="+KeyEvent.getKeyText(e.getKeyCode()));
+		}
+	}
