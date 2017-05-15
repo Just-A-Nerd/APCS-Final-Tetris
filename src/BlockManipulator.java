@@ -5,10 +5,12 @@ public class BlockManipulator
 		boolean canMove = true;
 		for(int i = 0; i < PlayingField.getField().length; i++)
 		{
-			for(int j = 1; j < PlayingField.getField()[0].length; j++)
+			for(int j = 0; j < PlayingField.getField()[0].length; j++)
 			{
 				if(PlayingField.getField()[i][j].getName() != "x")
 				{
+					if(j == 0)
+						canMove = false;
 					if(PlayingField.getField()[i][j-1] != null)
 						canMove = false;
 				}
@@ -19,7 +21,7 @@ public class BlockManipulator
 		{
 			for(int i = 0; i < PlayingField.getField().length; i++)
 			{
-				for(int j = 1; j < PlayingField.getField()[0].length; j++)
+				for(int j = 0; j < PlayingField.getField()[0].length; j++)
 				{
 					if(PlayingField.getField()[i][j].getName() != "x")
 					{
