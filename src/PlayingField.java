@@ -2,11 +2,11 @@ public class PlayingField
 {
 	private static int height = 22;
 	private static int width = 10;
-	private BlockSquare[][] field = new BlockSquare[height][width];
+	private static BlockSquare[][] field = new BlockSquare[height][width];
 	private int numBlockSpecies = 1;
 	private int bufferCell =  2;
 	
-	public BlockSquare[][] getField()
+	public static BlockSquare[][] getField()
 	{
 		return field;
 	}
@@ -34,8 +34,9 @@ public class PlayingField
 		}
 	}
 	
-	public void clearLines()
+	public int clearLines()
 	{
+		int count = 0;
 		for(int i = 0; i < field.length; i++)
 		{
 			//check if line should be cleared
@@ -53,16 +54,19 @@ public class PlayingField
 				{
 					field[i][j] = null;
 				}
-			}
-			
-			//move everything above the cleared line down
-			for(int k = i; k > 0; i--)
-			{
-				for(int j = 0; j < field[0].length; i++)
+				
+				count++;
+				
+				//move everything above the cleared line down
+				for(int k = i; k > 0; i--)
 				{
-					field[i][j] = field[i+1][j];
+					for(int j = 0; j < field[0].length; i++)
+					{
+						field[i][j] = field[i+1][j];
+					}
 				}
-			}
+			}	
 		}
+		return count;
 	}
 }
