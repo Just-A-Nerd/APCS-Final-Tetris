@@ -5,12 +5,14 @@ public class BlockSquare
 	private Color fillColor;
 	private Color outlineColor;
 	private String name;
+	private boolean axisOfRotation;
 	
-	public BlockSquare(Color fc, Color oc, String n)
+	public BlockSquare(Color fc, Color oc, String n, boolean a)
 	{
 		fillColor = fc;
 		outlineColor = oc;
 		n = name;
+		a = axisOfRotation;
 	}
 	
 	public Color getFillColor()
@@ -26,5 +28,10 @@ public class BlockSquare
 	public String getName()
 	{
 		return name;
+	}
+	
+	public boolean isAxisOfRotation()
+	{
+		return axisOfRotation;
 	}
 }

@@ -8,11 +8,12 @@ public class BlockL implements Block
 	
 	public BlockL()
 	{
-		BlockSquare b = new BlockSquare(fillColor, outlineColor, "L");
-		block[0][0] = b;
-		block[0][1] = b;	//	***
-		block[0][2] = b;	//  *--
-		block[1][0] = b;
+		BlockSquare b1 = new BlockSquare(fillColor, outlineColor, "L", false);
+		BlockSquare b2 = new BlockSquare(fillColor, outlineColor, "L", true);
+		block[0][0] = b1;
+		block[0][1] = b2;	//	***
+		block[0][2] = b1;	//  *--
+		block[1][0] = b1;
 	}
 	
 	public BlockSquare[][] getBlockArray()
@@ -20,9 +21,8 @@ public class BlockL implements Block
 		return block;
 	}
 	
-	public int[] getAxisOfRotation()
+	public String getAxisOfRotation()
 	{
-		int[] a = {0,1};
-		return a;
+		return "3x3";
 	}
 }
