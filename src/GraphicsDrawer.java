@@ -11,12 +11,12 @@ public class GraphicsDrawer
 		int borderSize = 5;
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setPaint(new Color(0, 0 ,0 ));
-		g2.fill(new Rectangle2D.Double(50, 50,PlayingField.getWidth() * blockSize, PlayingField.getHeight() * blockSize));
-		g2.setPaint(new Color(255, 255, 255));
-		g2.drawLine(50, 50, 50 , 50 + PlayingField.getHeight()* (blockSize - 2));
-		g2.drawLine(50, 50 + PlayingField.getHeight() * (blockSize - 2), 50 + PlayingField.getWidth() * blockSize , 50 + PlayingField.getHeight() * (blockSize - 2));
-		g2.drawLine(50 + PlayingField.getWidth() * blockSize, 50, 50 + PlayingField.getWidth() * blockSize,  50 + PlayingField.getHeight() * (blockSize - 2));
-		BlockSquare[][] field = PlayingField.getField()
+		g2.fill(new Rectangle2D.Double(50, 50, PlayingField.getField()[0].length * blockSize, (PlayingField.getField().length - 2) * blockSize));
+		g2.setPaint(new Color(255, 0, 0));
+		g2.drawLine(50, 50, 50 , 50 + (PlayingField.getField().length - 2) * blockSize);
+		g2.drawLine(50, 50 + (PlayingField.getField().length - 2) * blockSize, 50 + (PlayingField.getField()[0].length) * blockSize, 50 + (PlayingField.getField().length - 2) * blockSize);
+		g2.drawLine(50 + (PlayingField.getField()[0].length) * blockSize, 50, 50 + (PlayingField.getField()[0].length) * blockSize, 50 + (PlayingField.getField().length - 2) * blockSize);
+		BlockSquare[][] field = PlayingField.getField();
 		for(int i = 2; i < 22; i++)
 		{
 			for(int j = 0; j < 10; j++)
