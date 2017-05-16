@@ -22,7 +22,7 @@ public class PointCounter {
 			gotTetris = true;
 			break;
 		}
-		if(linesCleared >= 10) {
+		if(linesCleared >= 10) {		//Next level counter
 			linesCleared -= 10;
 			nextLevel();
 		}
