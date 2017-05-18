@@ -23,10 +23,10 @@ public class KeyboardListener implements KeyListener
 				BlockManipulator.moveDown();
 			
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinLeftKey))
-				BlockManipulator.spinLeft();
+				BlockManipulator.Spin("left");
 			
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinRightKey))
-				BlockManipulator.spinRight();
+				BlockManipulator.Spin("right");
 		}
 		
 		public void keyTyped(KeyEvent e){}
