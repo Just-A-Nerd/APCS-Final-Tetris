@@ -49,6 +49,7 @@ public class BlockManipulator
 		{
 			for(int j = 0; j < PlayingField.getField()[0].length; j++)
 			{
+				//checks if the current blocksquare is the axis of rotation of the falling block
 				if(PlayingField.getField()[i][j].isAxisOfRotation())
 				{
 					int tempW = 3;
@@ -56,6 +57,7 @@ public class BlockManipulator
 					boolean canSpin = true;
 					BlockSquare[][] temp = new BlockSquare[tempH][tempW];
 					
+					//copies current block blocksquares into temp array, determines if spin can happen
 					for(int k = 0; k < tempH; k++)
 					{
 						for(int m = 0; m < tempW; m++)
