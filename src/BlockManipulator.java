@@ -7,7 +7,7 @@ public class BlockManipulator
 		{
 			for(int j = 0; j < PlayingField.getField()[0].length; j++)
 			{
-				if(PlayingField.getField()[i][j].getName() != "x")
+				if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
 				{
 					if(j == 0)
 						canMove = false;
@@ -23,7 +23,7 @@ public class BlockManipulator
 			{
 				for(int j = 0; j < PlayingField.getField()[0].length; j++)
 				{
-					if(PlayingField.getField()[i][j].getName() != "x")
+					if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
 					{
 						PlayingField.getField()[i][j-1] = PlayingField.getField()[i][j];
 						PlayingField.getField()[i][j] = null;

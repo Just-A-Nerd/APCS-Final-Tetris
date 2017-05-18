@@ -39,6 +39,24 @@ public class PlayingField
 		}
 	}
 	
+	public void hitBottom()
+	{
+		for(int i = 0; i < field.length; i++)
+		{
+			for(int j = 0; j < field[0].length; j++)
+			{
+				if(field[i][j] != null && field[i][j].getName() != "x")
+				{
+					if(i == field.length - 1 || field[i-1][j] != null)
+					{
+						field[i][j].setName("x");
+						field[i][j].setAxisOfRotation(false);
+					}
+				}
+			}
+		}
+	}
+	
 	public int clearLines()
 	{
 		int count = 0;

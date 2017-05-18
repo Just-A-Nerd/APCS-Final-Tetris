@@ -30,8 +30,18 @@ public class BlockSquare
 		return name;
 	}
 	
+	public void setName(String n)
+	{
+		name = n;
+	}
+	
 	public boolean isAxisOfRotation()
 	{
 		return axisOfRotation;
+	}
+	
+	public void setAxisOfRotation(boolean b)
+	{
+		axisOfRotation = b;
 	}
 }
