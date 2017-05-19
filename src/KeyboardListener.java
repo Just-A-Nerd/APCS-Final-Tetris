@@ -29,6 +29,6 @@ public class KeyboardListener implements KeyListener
 				BlockManipulator.Spin("right");
 		}
 		
-		public void keyTyped(KeyEvent e){}
-		public void keyReleased(KeyEvent e){}
+		public void keyReleased(KeyEvent arg0) {}
+		public void keyTyped(KeyEvent arg0) {}
 }
