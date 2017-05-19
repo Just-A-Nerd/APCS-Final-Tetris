@@ -21,7 +21,7 @@ public class BlockL implements Block
 		return block;
 	}
 	
-	public String getAxisOfRotation()
+	public String getRotationType()
 	{
 		return "3x3";
 	}

@@ -1,5 +1,5 @@
 public interface Block
 {
 	public BlockSquare[][] getBlockArray();
-	public String getAxisOfRotation();
+	public String getRotationType();
 }
