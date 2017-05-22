@@ -29,17 +29,22 @@ public class GraphicsDrawer
 				PIXELS_OFF_EDGE, 
 				PIXELS_OFF_EDGE + (PlayingField.getField()[0].length) * BLOCK_SIZE, 
 				PIXELS_OFF_EDGE + (PlayingField.getField().length - PlayingField.getBuffer()) * BLOCK_SIZE);
-		BlockSquare[][] field = PlayingField.getField();
 		//Drawing Tetriminoes Drawing 
 		for(int row = 2; row < PlayingField.getField().length - PlayingField.getBuffer(); row++)
 		{
 			for(int column = 0; column < PlayingField.getField()[0].length; column++)
 			{
+				g2.setPaint(PlayingField.getField()[row][column].getOutlineColor());
+				g2.fill(new Rectangle2D.Double(PIXELS_OFF_EDGE + (column * BLOCK_SIZE), 
+						PIXELS_OFF_EDGE + (row * column), 
+						PIXELS_OFF_EDGE + (column + 1) * BLOCK_SIZE, 
+						PIXELS_OFF_EDGE + (row + 1) * BLOCK_SIZE));
 				g2.setPaint(PlayingField.getField()[row][column].getFillColor());
-				g2.fill(new Rectangle2D.Double(PIXELS_OFF_EDGE + ((column) * BLOCK_SIZE) - BORDER_SIZE, 
-						PIXELS_OFF_EDGE + row * BLOCK_SIZE, 
-						PIXELS_OFF_EDGE + ((column + 1) * BLOCK_SIZE), 
-						PIXELS_OFF_EDGE + ((row + 1) * BLOCK_SIZE)));
+				g2.fill(new Rectangle2D.Double(PIXELS_OFF_EDGE + ((column * BLOCK_SIZE) + BORDER_SIZE), 
+						PIXELS_OFF_EDGE + (row * BLOCK_SIZE + BORDER_SIZE), 
+						PIXELS_OFF_EDGE + ((column + 1) * BLOCK_SIZE - BORDER_SIZE), 
+						PIXELS_OFF_EDGE + ((row + 1) * BLOCK_SIZE - BORDER_SIZE)));
+				
 			}
 		}
 		
