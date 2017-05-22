@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public class PlayingField
 {
 	private static int height = 22;
@@ -72,5 +74,15 @@ public class PlayingField
 			}	
 		}
 		return count;
+	}
+	
+	
+	public static void changeField()
+	{
+		field[3][1] = new BlockSquare(new Color(200,200,0), new Color(100,100,0), "L");
+		field[21][9] = new BlockSquare(new Color(255,0,0), new Color(150,0,0), "T");
+		field[10][5] = new BlockSquare(new Color(50,200,0), new Color(25,150,0), "Z");
+		field[17][3] = new BlockSquare(new Color(0,100,200), new Color(0,50,100), "S");
+		
 	}
 }

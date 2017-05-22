@@ -5,7 +5,7 @@ import java.awt.geom.Rectangle2D;
 
 public class GraphicsDrawer
 {
-	private static final int PIXELS_OFF_EDGE = 50;
+	private static final int PIXELS_OFF_EDGE = 100;
 	private static final int BLOCK_SIZE = 40;
 	private static final int BORDER_SIZE = 5;
 	public static void drawGraphics(Graphics g)
@@ -14,7 +14,7 @@ public class GraphicsDrawer
 		Graphics2D g2 = (Graphics2D) g;
 		//Field
 		g2.setPaint(new Color(0, 0 ,0 ));
-		g2.fill(new Rectangle2D.Double(50, 50, PlayingField.getField()[0].length * BLOCK_SIZE, (PlayingField.getField().length - 2) * BLOCK_SIZE));
+		g2.fill(new Rectangle2D.Double(PIXELS_OFF_EDGE, PIXELS_OFF_EDGE, PlayingField.getField()[0].length * BLOCK_SIZE, (PlayingField.getField().length - 2) * BLOCK_SIZE));
 		//Border of Field
 		g2.setPaint(new Color(255, 0, 0));
 		g2.drawLine(PIXELS_OFF_EDGE, 
@@ -29,24 +29,32 @@ public class GraphicsDrawer
 				PIXELS_OFF_EDGE, 
 				PIXELS_OFF_EDGE + (PlayingField.getField()[0].length) * BLOCK_SIZE, 
 				PIXELS_OFF_EDGE + (PlayingField.getField().length - PlayingField.getBuffer()) * BLOCK_SIZE);
-		//Drawing Tetriminoes Drawing 
+		//Drawing Tetriminoes 
 		for(int row = 2; row < PlayingField.getField().length - PlayingField.getBuffer(); row++)
 		{
 			for(int column = 0; column < PlayingField.getField()[0].length; column++)
 			{
-				g2.setPaint(PlayingField.getField()[row][column].getOutlineColor());
-				g2.fill(new Rectangle2D.Double(PIXELS_OFF_EDGE + (column * BLOCK_SIZE), 
-						PIXELS_OFF_EDGE + (row * column), 
-						PIXELS_OFF_EDGE + (column + 1) * BLOCK_SIZE, 
-						PIXELS_OFF_EDGE + (row + 1) * BLOCK_SIZE));
-				g2.setPaint(PlayingField.getField()[row][column].getFillColor());
-				g2.fill(new Rectangle2D.Double(PIXELS_OFF_EDGE + ((column * BLOCK_SIZE) + BORDER_SIZE), 
-						PIXELS_OFF_EDGE + (row * BLOCK_SIZE + BORDER_SIZE), 
-						PIXELS_OFF_EDGE + ((column + 1) * BLOCK_SIZE - BORDER_SIZE), 
-						PIXELS_OFF_EDGE + ((row + 1) * BLOCK_SIZE - BORDER_SIZE)));
-				
+				if(PlayingField.getField()[row][column] == null) 
+				{
+					
+				}
+				else 
+				{
+					g2.setPaint(PlayingField.getField()[row][column].getOutlineColor());
+					g2.fill(new Rectangle2D.Double(
+							(column * BLOCK_SIZE), 
+							((row) * BLOCK_SIZE), 
+							((column) * BLOCK_SIZE), 
+							((row) * BLOCK_SIZE)));
+					g2.setPaint(PlayingField.getField()[row][column].getFillColor());
+					g2.fill(new Rectangle2D.Double(
+							((column * BLOCK_SIZE) + BORDER_SIZE), 
+							(((row - 2 ) * BLOCK_SIZE) + BORDER_SIZE), 
+							(((column - 1) * BLOCK_SIZE) - BORDER_SIZE * 2), 
+							(((row - 3) * BLOCK_SIZE) - BORDER_SIZE * 2)));
+					}
+				}
 			}
-		}
 		
 		
 		
