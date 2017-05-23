@@ -3,9 +3,10 @@
 	public static void main(String[] args)
 	{
 		new Window();
+		update();
 	}
-	public void update()
+	public static void update()
 	{
-		
+		PlayingField.makeBlockAppear();
 	}
 }
