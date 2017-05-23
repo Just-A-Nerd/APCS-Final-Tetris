@@ -22,7 +22,11 @@ public class BlockL implements Block
 	
 	public int[] getAxisOfRotation()
 	{
-		int[] a = {0,1};
+		int[] a = new int[2];
+		int x = 0; //to be figured out later
+		int y = 0;
+		a[0] = x;
+		a[1] = y;
 		return a;
 	}
 }
