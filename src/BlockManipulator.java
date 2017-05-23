@@ -2,8 +2,7 @@ public class BlockManipulator
 {
 	public static void Move(String direction)
 	{
-		boolean canMove = true;
-		for(int i = 0; i < PlayingField.getField().length; i++)
+		switch(PlayingField.)
 		{
 			for(int j = 0; j < PlayingField.getField()[0].length; j++)
 			{
