@@ -1,7 +1,7 @@
 
 public class PointCounter {
 
-	private int points = 0;
+	private static int points = 0;
 	private int linesCleared = 0;
 	private boolean gotTetris = false;
 	private int level;
@@ -28,7 +28,7 @@ public class PointCounter {
 		}
 		
 	}
-	public int getPoints() {
+	public static int getPoints() {
 		return points;
 	}
 	public void changeLevel(int level) {

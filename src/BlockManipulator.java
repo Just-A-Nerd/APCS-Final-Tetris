@@ -2,10 +2,10 @@ public class BlockManipulator
 {
 	public static void moveLeft()
 	{
-		switch(PlayingField.)
-		{
-			
-		}
+//		switch(PlayingField.)
+//		{
+//			
+//		}
 	}
 	
 	public static void moveRight()
