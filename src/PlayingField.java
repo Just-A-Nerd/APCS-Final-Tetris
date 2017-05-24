@@ -14,7 +14,7 @@ public class PlayingField
 	{
 		return field;
 	}
-	
+  
 	public static int getBuffer()
 	{
 		return bufferCell;
