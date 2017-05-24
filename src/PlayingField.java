@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.util.ArrayList;
 
 public class PlayingField
@@ -129,3 +128,4 @@ public class PlayingField
 		}
 		return count;
 	}
+}
