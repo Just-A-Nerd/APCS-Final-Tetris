@@ -14,21 +14,21 @@ public class KeyboardListener implements KeyListener
 			//System.out.println("keyPressed="+KeyEvent.getKeyText(e.getKeyCode()));
 			
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveLeftKey))
-				BlockManipulator.moveLeft();
-			
+				BlockManipulator.Move("left");
+        
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveRightKey))
-				BlockManipulator.moveRight();
+				BlockManipulator.Move("right");
 			
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveDownKey))
-				BlockManipulator.moveDown();
+				BlockManipulator.Move("down");
 			
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinLeftKey))
-				BlockManipulator.spinLeft();
+				BlockManipulator.Spin("left");
 			
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinRightKey))
-				BlockManipulator.spinRight();
+				BlockManipulator.Spin("right");
 		}
 		
-		public void keyTyped(KeyEvent e){}
-		public void keyReleased(KeyEvent e){}
+		public void keyReleased(KeyEvent arg0) {}
+		public void keyTyped(KeyEvent arg0) {}
 }

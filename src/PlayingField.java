@@ -1,32 +1,68 @@
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class PlayingField
 {
 	private static int height = 22;
 	private static int width = 10;
 	private static BlockSquare[][] field = new BlockSquare[height][width];
-	private int numBlockSpecies = 1;
+	private static int numBlockSpecies = 5;
 	private static int bufferCell =  2;
+	private static ArrayList<Block> initList = new ArrayList<Block>();
+	private static ArrayList<Block> randList = new ArrayList<Block>();
 	
 	public static BlockSquare[][] getField()
 	{
 		return field;
 	}
-	
-	public static int getBuffer() {
+  
+	public static int getBuffer()
+	{
 		return bufferCell;
 	}
 	
-	public void makeBlockAppear()
+	public static Block computeRandom()
 	{
-		Block block = null;
-		int rand = (int) (Math.random() * numBlockSpecies) + 1;
+		if(randList.size() == 0)
+		{
+			initList.add(new BlockL());
+			initList.add(new BlockJ());
+			initList.add(new BlockT());
+			initList.add(new BlockS());
+			initList.add(new BlockZ());
+			for(int i = 0; i < numBlockSpecies; i++)
+			{
+				int rand = (int) (Math.random() * numBlockSpecies);
+				randList.add(initList.get(rand));
+				initList.remove(rand);
+			}
+		}
+		
+		Block block = randList.get(0);
+		randList.remove(0);
+		
+		return block;
+	}
+	
+	public static void makeBlockAppear()
+	{
+		/*Block block = null;
+		int rand = (int) (Math.random() * numBlockSpecies);
 		
 		switch(rand)
 		{
-		case 1: block = new BlockL();
+		case 0: block = new BlockL();
 		break;
-		}
+		case 1: block = new BlockJ();
+		break;
+		case 2: block = new BlockT();
+		break;
+		case 3: block = new BlockS();
+		break;
+		case 4: block = new BlockZ();
+		}*/
+		
+		Block block = computeRandom();
 		
 		for(int i = bufferCell; i < block.getBlockArray().length; i++)
 		{
@@ -40,7 +76,25 @@ public class PlayingField
 		}
 	}
 	
-	public int clearLines()
+	public static void hitBottom()
+	{
+		for(int i = 0; i < field.length; i++)
+		{
+			for(int j = 0; j < field[0].length; j++)
+			{
+				if(field[i][j] != null && field[i][j].getName() != "x")
+				{
+					if(i == field.length - 1 || field[i-1][j] != null)
+					{
+						field[i][j].setName("x");
+						field[i][j].setAxisOfRotation(false);
+					}
+				}
+			}
+		}
+	}
+	
+	public static int clearLines()
 	{
 		int count = 0;
 		for(int i = 0; i < field.length; i++)
@@ -75,14 +129,3 @@ public class PlayingField
 		}
 		return count;
 	}
-	
-	
-	public static void changeField()
-	{
-		field[1][0] = new BlockSquare(new Color(200,200,0), new Color(100,100,0), "L");
-		field[21][9] = new BlockSquare(new Color(255,0,0), new Color(150,0,0), "T");
-		field[10][5] = new BlockSquare(new Color(50,200,0), new Color(25,150,0), "Z");
-		field[17][3] = new BlockSquare(new Color(0,100,200), new Color(0,50,100), "S");
-		
-	}
-}

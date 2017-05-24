@@ -59,17 +59,10 @@ public class GraphicsDrawer
 				}
 			}
 		
-		
-		
-		
 		g2.setPaint(new Color(255,255,255));
 		g2.draw(new Rectangle2D.Double(850, 200, 100, 100));//Next Block Display
 		g2.draw(new Rectangle2D.Double(650, 50, 300, 100));//Score Display
 		g2.setFont(new Font("Sans Serif", 0, 36));
 		g2.drawString(Integer.toString(PointCounter.getPoints()), 795 - (Integer.toString(PointCounter.getPoints()).length() * 7), 110);
-		
-		
-		
-		
 	}
 }

@@ -4,10 +4,10 @@
 	{
 		PlayingField.changeField();
 		new Window();
-		
+		update();
 	}
-	public void update()
+	public static void update()
 	{
-		
+		PlayingField.makeBlockAppear();
 	}
 }
