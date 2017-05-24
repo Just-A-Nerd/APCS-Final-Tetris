@@ -2,8 +2,9 @@ public class BlockManipulator
 {
 	public static void Move(String direction)
 	{
-		switch(PlayingField.)
-		{
+		boolean canMove = true;
+		for(int i = 0; i < PlayingField.getField().length; i++)
+		{	
 			for(int j = 0; j < PlayingField.getField()[0].length; j++)
 			{
 				//checks if the current blocksquare is the falling block

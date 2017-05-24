@@ -20,6 +20,4 @@ public class BlockL implements Block
 	{
 		return block;
 	}
-	
-	}
 }
