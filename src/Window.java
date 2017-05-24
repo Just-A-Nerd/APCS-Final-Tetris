@@ -1,4 +1,6 @@
+
 import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.event.KeyListener;
 
@@ -25,5 +27,4 @@ public class Window extends JFrame
 	{
 		GraphicsDrawer.drawGraphics(g);
 	}
-	
 }
