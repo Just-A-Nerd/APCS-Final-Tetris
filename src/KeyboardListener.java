@@ -15,7 +15,7 @@ public class KeyboardListener implements KeyListener
 			
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveLeftKey))
 				BlockManipulator.Move("left");
-			
+        
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveRightKey))
 				BlockManipulator.Move("right");
 			

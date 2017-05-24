@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
@@ -23,6 +24,7 @@ public class Window extends JFrame
 		addKeyListener(listener);
 		setFocusable(true);
 		setVisible(true);
+		setBackground(new Color(0,0,0));
 	}
 	
 	public void paint(Graphics g)
