@@ -4,11 +4,7 @@ public class BlockManipulator
 	{
 		boolean canMove = true;
 		for(int i = 0; i < PlayingField.getField().length; i++)
-<<<<<<< HEAD
-		{	
-=======
 		{
->>>>>>> f68661ba7785ed2e10423849dc01fe1782f524d8
 			for(int j = 0; j < PlayingField.getField()[0].length; j++)
 			{
 				//checks if the current blocksquare is the falling block

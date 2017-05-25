@@ -30,6 +30,8 @@ public class GraphicsDrawer
 				PIXELS_OFF_EDGE, 
 				PIXELS_OFF_EDGE + (PlayingField.getField()[0].length) * BLOCK_SIZE, 
 				PIXELS_OFF_EDGE + (PlayingField.getField().length - PlayingField.getBuffer()) * BLOCK_SIZE);
+		
+		
 		//Drawing Tetriminoes 
 		for(int row = 0; row < PlayingField.getField().length; row++)
 		{
