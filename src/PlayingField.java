@@ -3,11 +3,11 @@ import java.util.ArrayList;
 
 public class PlayingField
 {
-	private static int height = 22;
+	private static int bufferCell =  2;
+	private static int height = 20 + bufferCell;
 	private static int width = 10;
 	private static BlockSquare[][] field = new BlockSquare[height][width];
 	private static int numBlockSpecies = 5;
-	private static int bufferCell =  2;
 	private static ArrayList<Block> initList = new ArrayList<Block>();
 	private static ArrayList<Block> randList = new ArrayList<Block>();
 	
@@ -61,7 +61,6 @@ public class PlayingField
 		break;
 		case 4: block = new BlockZ();
 		}
-		//Block block = new BlockL();
 		
 		//Block block = computeRandom();
 		

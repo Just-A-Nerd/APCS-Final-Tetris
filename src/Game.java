@@ -24,7 +24,7 @@ public class Game
 		{
 			public void run()
 			{
-				BlockManipulator.Move("down");
+				//BlockManipulator.Move("down");
 				System.out.println("test");
 			}
 		}, level1Speed, level1Speed);
