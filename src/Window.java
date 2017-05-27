@@ -61,11 +61,11 @@ public class Window extends JPanel
 		Game.downLoop();
 		while (true)
 		{
-			Game.Update();
+			//Game.Update();
 			window.repaint();
 			try
 			{
-				Thread.sleep(10);
+				Thread.sleep(30);
 			}
 			catch (InterruptedException e)
 			{

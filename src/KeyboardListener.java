@@ -8,11 +8,14 @@ public class KeyboardListener implements KeyListener
 	private final String moveDownKey = "Down";
 	private final String spinLeftKey = "X";
 	private final String spinRightKey = "Z";
+	private final String pauseKey = "P";
 	
 	public void keyPressed(KeyEvent e)
 	{
 		//System.out.println("keyPressed="+KeyEvent.getKeyText(e.getKeyCode()));
-			
+		
+		if(!Game.isPaused)
+		{
 		if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveLeftKey))
 			BlockManipulator.Move("left");
         
@@ -27,6 +30,9 @@ public class KeyboardListener implements KeyListener
 			
 		if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinRightKey))
 			BlockManipulator.Spin("right");
+		}
+		if(KeyEvent.getKeyText(e.getKeyCode()).equals(pauseKey))
+			Game.Pause();
 	}
 		
 	public void keyReleased(KeyEvent arg0) {}

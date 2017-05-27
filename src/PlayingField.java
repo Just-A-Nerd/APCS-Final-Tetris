@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.util.ArrayList;
 
 public class PlayingField
@@ -32,12 +31,12 @@ public class PlayingField
 			initList.add(new BlockZ());
 			for(int i = 0; i < numBlockSpecies; i++)
 			{
-				int rand = (int) (Math.random() * numBlockSpecies);
+				int rand = (int) (Math.random() * initList.size());
 				randList.add(initList.get(rand));
 				initList.remove(rand);
 			}
 		}
-		
+
 		Block block = randList.get(0);
 		randList.remove(0);
 		
@@ -46,7 +45,7 @@ public class PlayingField
 	
 	public static void makeBlockAppear()
 	{
-		Block block = null;
+		/*Block block = null;
 		int rand = (int) (Math.random() * numBlockSpecies);
 		
 		switch(rand)
@@ -60,9 +59,9 @@ public class PlayingField
 		case 3: block = new BlockS();
 		break;
 		case 4: block = new BlockZ();
-		}
-		
-		//Block block = computeRandom();
+		}*/
+		//block = new BlockT();
+		Block block = computeRandom();
 		
 		for(int i = 0; i < block.getBlockArray().length; i++)
 		{
@@ -78,8 +77,9 @@ public class PlayingField
 		}
 	}
 	
-	public static void hitBottom()
+	public static boolean hitBottom()
 	{
+		boolean isHit = false;
 		for(int i = 0; i < field.length; i++)
 		{
 			for(int j = 0; j < field[0].length; j++)
@@ -89,6 +89,7 @@ public class PlayingField
 					if(i == field.length - 1 || (field[i+1][j] != null && field[i+1][j].getName() == "x"))
 					{
 						//found a BlockSquare that is at hit something
+						isHit = true;
 						
 						for(int k = 0; k < field.length; k++)
 						{
@@ -106,6 +107,7 @@ public class PlayingField
 				}
 			}
 		}
+		return isHit;
 	}
 	
 	public static int clearLines()
@@ -132,11 +134,11 @@ public class PlayingField
 				count++;
 				
 				//move everything above the cleared line down
-				for(int k = i; k > 0; i--)
+				for(int k = i; k > 0; k--)
 				{
-					for(int j = 0; j < field[0].length; i++)
+					for(int j = 0; j < field[0].length; j++)
 					{
-						field[i][j] = field[i+1][j];
+						field[k][j] = field[k-1][j];
 					}
 				}
 			}	

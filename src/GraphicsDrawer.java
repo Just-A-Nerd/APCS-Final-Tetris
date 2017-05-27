@@ -37,11 +37,7 @@ public class GraphicsDrawer
 		{
 			for(int column = 0; column < PlayingField.getField()[0].length; column++)
 			{
-				if(PlayingField.getField()[row][column] == null) 
-				{
-					
-				}
-				else 
+				if(PlayingField.getField()[row][column] != null)
 				{
 					g2.setPaint(PlayingField.getField()[row][column].getOutlineColor());
 					g2.fill(new Rectangle2D.Double(
