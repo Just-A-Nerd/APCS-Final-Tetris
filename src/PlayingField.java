@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class PlayingField
@@ -45,7 +46,7 @@ public class PlayingField
 	
 	public static void makeBlockAppear()
 	{
-		/*Block block = null;
+		Block block = null;
 		int rand = (int) (Math.random() * numBlockSpecies);
 		
 		switch(rand)
@@ -59,18 +60,21 @@ public class PlayingField
 		case 3: block = new BlockS();
 		break;
 		case 4: block = new BlockZ();
-		}*/
+		}
+		//Block block = new BlockL();
 		
-		Block block = computeRandom();
+		//Block block = computeRandom();
 		
-		for(int i = bufferCell; i < block.getBlockArray().length; i++)
+		for(int i = 0; i < block.getBlockArray().length; i++)
 		{
 			int mid = field[0].length / 2;
-			
-			for(int j = mid - block.getBlockArray()[0].length; j < field[0].length; j++)
+
+			for(int j = 0; j < block.getBlockArray()[0].length; j++)
 			{
 				if(block.getBlockArray()[i][j] != null)
-					field[i][j] = block.getBlockArray()[i][j];
+				{
+					field[bufferCell + i][mid - (block.getBlockArray()[0].length / 2) + j] = block.getBlockArray()[i][j];
+				}
 			}
 		}
 	}
@@ -83,10 +87,22 @@ public class PlayingField
 			{
 				if(field[i][j] != null && field[i][j].getName() != "x")
 				{
-					if(i == field.length - 1 || field[i-1][j] != null)
+					if(i == field.length - 1 || (field[i+1][j] != null && field[i+1][j].getName() == "x"))
 					{
-						field[i][j].setName("x");
-						field[i][j].setAxisOfRotation(false);
+						//found a BlockSquare that is at hit something
+						
+						for(int k = 0; k < field.length; k++)
+						{
+							for(int m = 0; m < field[0].length; m++)
+							{
+								if(field[k][m] != null && field[k][m].getName() != "x")
+								{
+									field[k][m].setName("x");
+									field[k][m].setAxisOfRotation(false);
+									System.out.println("hitb");
+								}
+							}
+						}
 					}
 				}
 			}
