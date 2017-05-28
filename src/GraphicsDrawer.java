@@ -3,12 +3,15 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GraphicsDrawer
 {
 	private static final int PIXELS_OFF_EDGE = 50;
 	private static final int BLOCK_SIZE = 40;
 	private static final int BORDER_SIZE = 5;
+	private static final String font = "Terminus Re33"; 
 	
 	public static void drawGraphics(Graphics g)
 	{
@@ -59,13 +62,31 @@ public class GraphicsDrawer
 			}
 		
 		g2.setPaint(new Color(255,255,255));
-		g2.draw(new Rectangle2D.Double(850, 200, 100, 100));//Next Block Display
+		g2.draw(new Rectangle2D.Double(500, 50, 100, 100));//Level Display
+		g2.draw(new Rectangle2D.Double(500, 200, 150, 150));//Next Block Display
 		g2.draw(new Rectangle2D.Double(650, 50, 300, 100));//Score Display
+		g2.draw(new Rectangle2D.Double(725, 250, 150, 100));//Lines Cleared Display
+		
 		g2.setPaint(new Color(0,0,0));
 		g2.fill(new Rectangle2D.Double(651,51,298,98));
 		g2.setPaint(new Color(255,255,255));
-		g2.setFont(new Font("Terminus Re33", 0, 36));
+		g2.setFont(new Font(font, 0, 36));
+		g2.drawString("Score", 750, 45);
 		g2.drawString(Integer.toString(PointCounter.getPoints()), 795 - (Integer.toString(PointCounter.getPoints()).length() * 7), 110);
+		
+		g2.setPaint(new Color(0,0,0));
+		g2.fill(new Rectangle2D.Double(501,51,98,98));
+		g2.setPaint(new Color(255,255,255));
+		g2.setFont(new Font(font, 0, 36));
+		g2.drawString("Level", 510, 45);
+		g2.drawString(Integer.toString(PointCounter.getLevel()), 550 - (Integer.toString(PointCounter.getLevel()).length() * 7), 110);
+		
+		g2.setPaint(new Color(0,0,0));
+		g2.fill(new Rectangle2D.Double(751,251,98,98));
+		g2.setPaint(new Color(255,255,255));
+		g2.setFont(new Font(font, 0, 36));
+		g2.drawString("Lines Cleared", 680, 245);
+		g2.drawString(Integer.toString(PointCounter.getLinesCleared()), 800 - (Integer.toString(PointCounter.getLinesCleared()).length() * 7), 310);
 	}
 	
 	public static void drawGameOver(Graphics g)
@@ -73,9 +94,9 @@ public class GraphicsDrawer
 		Graphics2D g2 = (Graphics2D) g;
 		
 		g2.setPaint(new Color(50,50,50));
-		g2.fill(new Rectangle2D.Double(0,0,1000,1000));
+		//g2.fill(new Rectangle2D.Double(0,0,1000,1000));
 		g2.setPaint(new Color(255,255,255));
 		g2.setFont(new Font("Terminus Re33", 0, 80));
-		g2.drawString("Game Over", 280, 500);
+		g2.drawString("Game Over", 75, 400);
 	}
 }

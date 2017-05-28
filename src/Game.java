@@ -5,20 +5,14 @@ public class Game
 {
 	static boolean isPaused = false;
 	private static boolean genBlock;
-	private static boolean gameOver;
-	private static int level1Speed = 1000;
-	private static int level2Speed = 900;
-	private static int level3Speed = 800;
-	private static int level4Speed = 700;
-	private static int level5Speed = 600;
-	private static int level6Speed = 500;
-	private static int level7Speed = 400;
-	private static int level8Speed = 300;
-	private static int level9Speed = 200;
+	private static final int LEVEL1_SPEED = 1000;
+	private static final int NEXT_LEVEL_SPEED_INC = 100;
+	//private static int currentSpeed = LEVEL1_SPEED - (NEXT_LEVEL_SPEED_INC * (PointCounter.getLevel() - 1));
 	
 	public static void Update()
 	{
-		
+		//put stuff here to make it run repeatedly without delay
+		//currentSpeed = LEVEL1_SPEED - (NEXT_LEVEL_SPEED_INC * (PointCounter.getLevel() - 1));
 	}
 	
 	public static void downLoop()
@@ -45,7 +39,7 @@ public class Game
 					System.out.println("test");
 				}
 			}
-		}, level1Speed, level1Speed);
+		}, 1000, 1000);
 	}
 	
 	public static void Pause()
