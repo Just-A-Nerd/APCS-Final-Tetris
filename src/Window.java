@@ -4,12 +4,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
+import java.awt.geom.Rectangle2D;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
@@ -32,7 +34,11 @@ public class Window extends JPanel
 	
 	public void paint(Graphics g)
 	{
-		GraphicsDrawer.drawGraphics(g);
+		if(!(PlayingField.isGameOver()))
+			GraphicsDrawer.drawGraphics(g);
+		
+		if(PlayingField.isGameOver())
+			GraphicsDrawer.drawGameOver(g);
 	}
 	
     /*public void actionPerformed(ActionEvent e)

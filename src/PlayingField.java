@@ -9,6 +9,7 @@ public class PlayingField
 	private static int numBlockSpecies = 5;
 	private static ArrayList<Block> initList = new ArrayList<Block>();
 	private static ArrayList<Block> randList = new ArrayList<Block>();
+	private static boolean isGameOver = false;
 	
 	public static BlockSquare[][] getField()
 	{
@@ -69,12 +70,23 @@ public class PlayingField
 
 			for(int j = 0; j < block.getBlockArray()[0].length; j++)
 			{
+				if(field[bufferCell + i][mid - (block.getBlockArray()[0].length / 2) + j] != null)
+				{
+					isGameOver = true;
+					System.out.println("gameover");
+				}
+				
 				if(block.getBlockArray()[i][j] != null)
 				{
 					field[bufferCell + i][mid - (block.getBlockArray()[0].length / 2) + j] = block.getBlockArray()[i][j];
 				}
 			}
 		}
+	}
+	
+	public static boolean isGameOver()
+	{
+		return isGameOver;
 	}
 	
 	public static boolean hitBottom()

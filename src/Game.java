@@ -4,16 +4,17 @@ import java.util.TimerTask;
 public class Game
 {
 	static boolean isPaused = false;
-	static boolean genBlock;
-	static int level1Speed = 1000;
-	static int level2Speed = 900;
-	static int level3Speed = 800;
-	static int level4Speed = 700;
-	static int level5Speed = 600;
-	static int level6Speed = 500;
-	static int level7Speed = 400;
-	static int level8Speed = 300;
-	static int level9Speed = 200;
+	private static boolean genBlock;
+	private static boolean gameOver;
+	private static int level1Speed = 1000;
+	private static int level2Speed = 900;
+	private static int level3Speed = 800;
+	private static int level4Speed = 700;
+	private static int level5Speed = 600;
+	private static int level6Speed = 500;
+	private static int level7Speed = 400;
+	private static int level8Speed = 300;
+	private static int level9Speed = 200;
 	
 	public static void Update()
 	{
@@ -34,7 +35,8 @@ public class Game
 					if(PlayingField.hitBottom())
 						genBlock = true;
 					
-					PlayingField.clearLines();
+					int numLines = PlayingField.clearLines();
+					PointCounter.addLinePoints(numLines);
 					
 					if(genBlock)
 						PlayingField.makeBlockAppear();

@@ -9,6 +9,7 @@ public class GraphicsDrawer
 	private static final int PIXELS_OFF_EDGE = 50;
 	private static final int BLOCK_SIZE = 40;
 	private static final int BORDER_SIZE = 5;
+	
 	public static void drawGraphics(Graphics g)
 	{
 		
@@ -60,7 +61,21 @@ public class GraphicsDrawer
 		g2.setPaint(new Color(255,255,255));
 		g2.draw(new Rectangle2D.Double(850, 200, 100, 100));//Next Block Display
 		g2.draw(new Rectangle2D.Double(650, 50, 300, 100));//Score Display
-		g2.setFont(new Font("Sans Serif", 0, 36));
+		g2.setPaint(new Color(0,0,0));
+		g2.fill(new Rectangle2D.Double(651,51,298,98));
+		g2.setPaint(new Color(255,255,255));
+		g2.setFont(new Font("Terminus Re33", 0, 36));
 		g2.drawString(Integer.toString(PointCounter.getPoints()), 795 - (Integer.toString(PointCounter.getPoints()).length() * 7), 110);
+	}
+	
+	public static void drawGameOver(Graphics g)
+	{
+		Graphics2D g2 = (Graphics2D) g;
+		
+		g2.setPaint(new Color(50,50,50));
+		g2.fill(new Rectangle2D.Double(0,0,1000,1000));
+		g2.setPaint(new Color(255,255,255));
+		g2.setFont(new Font("Terminus Re33", 0, 80));
+		g2.drawString("Game Over", 280, 500);
 	}
 }
