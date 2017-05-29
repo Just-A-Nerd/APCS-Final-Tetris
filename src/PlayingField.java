@@ -10,6 +10,7 @@ public class PlayingField
 	private static ArrayList<Block> initList = new ArrayList<Block>();
 	private static ArrayList<Block> randList = new ArrayList<Block>();
 	private static boolean isGameOver = false;
+	private static Block nextBlock = null;
 	
 	public static BlockSquare[][] getField()
 	{
@@ -19,6 +20,11 @@ public class PlayingField
 	public static int getBuffer()
 	{
 		return bufferCell;
+	}
+	
+	public static Block getNextBlock()
+	{
+		return nextBlock;
 	}
 	
 	public static Block computeRandom()
@@ -62,7 +68,12 @@ public class PlayingField
 		case 4: block = new BlockZ();
 		}*/
 		//block = new BlockT();
-		Block block = computeRandom();
+		//Block block = computeRandom();
+		
+		if(nextBlock == null)
+			nextBlock = computeRandom();
+		
+		Block block = nextBlock;
 		
 		for(int i = 0; i < block.getBlockArray().length; i++)
 		{
@@ -82,6 +93,7 @@ public class PlayingField
 				}
 			}
 		}
+		nextBlock = computeRandom();
 	}
 	
 	public static boolean isGameOver()

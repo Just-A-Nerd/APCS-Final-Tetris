@@ -32,10 +32,13 @@ public class Game
 					int numLines = PlayingField.clearLines();
 					PointCounter.addLinePoints(numLines);
 					
+					
+					
+					BlockManipulator.Move("down");
+					
 					if(genBlock)
 						PlayingField.makeBlockAppear();
 					
-					BlockManipulator.Move("down");
 					System.out.println("test");
 				}
 			}

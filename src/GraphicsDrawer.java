@@ -37,7 +37,7 @@ public class GraphicsDrawer
 		
 		
 		//Drawing Tetriminoes 
-		for(int row = 0; row < PlayingField.getField().length; row++)
+		for(int row = PlayingField.getBuffer(); row < PlayingField.getField().length; row++)
 		{
 			for(int column = 0; column < PlayingField.getField()[0].length; column++)
 			{
@@ -63,9 +63,9 @@ public class GraphicsDrawer
 		
 		g2.setPaint(new Color(255,255,255));
 		g2.draw(new Rectangle2D.Double(500, 50, 100, 100));//Level Display
-		g2.draw(new Rectangle2D.Double(500, 200, 150, 150));//Next Block Display
+		g2.draw(new Rectangle2D.Double(500, 200, 180, 180));//Next Block Display
 		g2.draw(new Rectangle2D.Double(650, 50, 300, 100));//Score Display
-		g2.draw(new Rectangle2D.Double(725, 250, 150, 100));//Lines Cleared Display
+		g2.draw(new Rectangle2D.Double(750, 250, 150, 100));//Lines Cleared Display
 		
 		g2.setPaint(new Color(0,0,0));
 		g2.fill(new Rectangle2D.Double(651,51,298,98));
@@ -82,11 +82,39 @@ public class GraphicsDrawer
 		g2.drawString(Integer.toString(PointCounter.getLevel()), 550 - (Integer.toString(PointCounter.getLevel()).length() * 7), 110);
 		
 		g2.setPaint(new Color(0,0,0));
-		g2.fill(new Rectangle2D.Double(751,251,98,98));
+		g2.fill(new Rectangle2D.Double(751,251,148,98));
 		g2.setPaint(new Color(255,255,255));
 		g2.setFont(new Font(font, 0, 36));
-		g2.drawString("Lines Cleared", 680, 245);
-		g2.drawString(Integer.toString(PointCounter.getLinesCleared()), 800 - (Integer.toString(PointCounter.getLinesCleared()).length() * 7), 310);
+		g2.drawString("Lines Cleared", 705, 245);
+		g2.drawString(Integer.toString(PointCounter.getLinesCleared()), 825 - (Integer.toString(PointCounter.getLinesCleared()).length() * 7), 310);
+		
+		g2.setPaint(new Color(0,0,0));
+		g2.fill(new Rectangle2D.Double(501,201,178,178));
+		
+		//draw the block in the next block display
+		for(int row = 0; row < PlayingField.getNextBlock().getBlockArray().length; row++)
+		{
+			for(int column = 0; column < PlayingField.getNextBlock().getBlockArray()[0].length; column++)
+			{
+				if(PlayingField.getNextBlock().getBlockArray()[row][column] != null)
+				{
+					g2.setPaint(PlayingField.getNextBlock().getBlockArray()[row][column].getOutlineColor());
+					g2.fill(new Rectangle2D.Double(
+							(500+10 + column * BLOCK_SIZE), 
+							(200+10 + row * BLOCK_SIZE), 
+							(BLOCK_SIZE), 
+							(BLOCK_SIZE)));
+					//Fills center of shape
+					g2.setPaint(PlayingField.getNextBlock().getBlockArray()[row][column].getFillColor());
+					g2.fill(new Rectangle2D.Double(
+							(500+10 + column * BLOCK_SIZE + BORDER_SIZE), 
+							(200+10 + row * BLOCK_SIZE + BORDER_SIZE), 
+							(BLOCK_SIZE - BORDER_SIZE * 2), 
+							(BLOCK_SIZE - BORDER_SIZE * 2)));
+					}
+				g2.setPaint(new Color(0,0,0));
+				}
+			}
 	}
 	
 	public static void drawGameOver(Graphics g)

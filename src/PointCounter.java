@@ -32,7 +32,9 @@ public class PointCounter
 		}
 		
 		if(linesCleared >= nextLevelLines * level)
+		{
 			level++;
+		}
 	}
 	
 	public static int getPoints()
@@ -48,11 +50,6 @@ public class PointCounter
 	public static int getLinesCleared()
 	{
 		return linesCleared;
-	}
-	
-	public void changeLevel(int l)
-	{
-		level = l;
 	}
 	
 	public void gotTetris(boolean isTrue)
