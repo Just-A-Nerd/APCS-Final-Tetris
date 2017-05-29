@@ -14,3 +14,4 @@ Music and sound effects
 If a blocksquare is written in the buffer zone (from rotating the block when it first appears) it will stay like that forever
 Sometimes blocksquares will keep falling if the down key is held and the block hits bottom
 The console spits out large errors when the player tries to spin a block next to the wall (doesn't actually affect the game)
+Tetriminoes on the left overwrite the white border thing
