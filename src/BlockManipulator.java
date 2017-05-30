@@ -14,7 +14,7 @@ public class BlockManipulator
 					//checks if the current blocksquare is the falling block
 					if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
 					{
-						if(moveCount >= 4)
+						if(moveCount >= 5)
 							canMove = false;
 
 						if(i == PlayingField.getField().length - 1)
@@ -42,7 +42,7 @@ public class BlockManipulator
 					//checks if the current blocksquare is the falling block
 					if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
 					{
-						if(moveCount >= 4)
+						if(moveCount >= 5)
 							canMove = false;
 						
 						if(j == 0)
@@ -70,7 +70,7 @@ public class BlockManipulator
 					//checks if the current blocksquare is the falling block
 					if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
 					{
-						if(moveCount >= 4)
+						if(moveCount >= 5)
 							canMove = false;
 						
 						if(j == PlayingField.getField()[0].length - 1)

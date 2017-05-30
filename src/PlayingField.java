@@ -37,6 +37,13 @@ public class PlayingField
 			initList.add(new BlockS());
 			initList.add(new BlockZ());
 			initList.add(new BlockO());
+			initList.add(new Block5F());
+			initList.add(new Block5P());
+			initList.add(new Block5T());
+			initList.add(new Block5U());
+			initList.add(new Block5W());
+			initList.add(new Block5X());
+			initList.add(new Block5Z());
 			for(int i = 0; i < numBlockSpecies; i++)
 			{
 				int rand = (int) (Math.random() * initList.size());
