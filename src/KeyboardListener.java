@@ -16,20 +16,20 @@ public class KeyboardListener implements KeyListener
 		
 		if(!Game.isPaused)
 		{
-		if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveLeftKey))
-			BlockManipulator.Move("left");
+			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveLeftKey))
+				BlockManipulator.Move("left");
         
-		if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveRightKey))
-			BlockManipulator.Move("right");
+			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveRightKey))
+				BlockManipulator.Move("right");
 			
-		if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveDownKey))
-			BlockManipulator.Move("down");
-			
-		if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinLeftKey))
-			BlockManipulator.Spin("left");
-			
-		if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinRightKey))
-			BlockManipulator.Spin("right");
+			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveDownKey))
+				BlockManipulator.Move("down");
+				
+			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinLeftKey))
+				BlockManipulator.Spin("left");
+				
+			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinRightKey))
+				BlockManipulator.Spin("right");
 		}
 		if(KeyEvent.getKeyText(e.getKeyCode()).equals(pauseKey))
 			Game.Pause();

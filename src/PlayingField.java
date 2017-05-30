@@ -6,7 +6,7 @@ public class PlayingField
 	private static int height = 20 + bufferCell;
 	private static int width = 10;
 	private static BlockSquare[][] field = new BlockSquare[height][width];
-	private static int numBlockSpecies = 5;
+	private static int numBlockSpecies = 6;
 	private static ArrayList<Block> initList = new ArrayList<Block>();
 	private static ArrayList<Block> randList = new ArrayList<Block>();
 	private static boolean isGameOver = false;
@@ -36,6 +36,7 @@ public class PlayingField
 			initList.add(new BlockT());
 			initList.add(new BlockS());
 			initList.add(new BlockZ());
+			initList.add(new BlockO());
 			for(int i = 0; i < numBlockSpecies; i++)
 			{
 				int rand = (int) (Math.random() * initList.size());
