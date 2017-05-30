@@ -11,8 +11,8 @@ public class BlockSquare
 	{
 		fillColor = fc;
 		outlineColor = oc;
-		n = name;
-		a = axisOfRotation;
+		name = n;
+		axisOfRotation = a;
 	}
 	
 	public Color getFillColor()

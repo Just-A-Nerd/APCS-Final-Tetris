@@ -1,44 +1,62 @@
-
-public class PointCounter {
-
+public class PointCounter
+{
 	private static int points = 0;
-	private int linesCleared = 0;
-	private boolean gotTetris = false;
-	private int level;
-	public PointCounter(int lines) {
+	private static int linesCleared = 0;
+	private static boolean gotTetris = false;
+	private static int level = 1;
+	private static int nextLevelLines = 10;
+	private static final int LINES_1 = 100;
+	private static final int LINES_2 = 300;
+	private static final int LINES_3 = 500;
+	private static final int LINES_4 = 800;
+	
+	public static void addLinePoints(int lines)
+	{
 		linesCleared += lines;
+		
 		switch(lines)
 		{
-			case 1: points += 100 * level;
+			case 1: points += LINES_1 * level;
 			break;
-			case 2: points += 300 * level;
+			case 2: points += LINES_2 * level;
 			break;
-			case 3: points += 500 * level;
+			case 3: points += LINES_3 * level;
 			break;
-			case 4: points += 800 * level;
-			if(gotTetris) {
+			case 4: points += LINES_4 * level;
+			
+			/*if(gotTetris)
 				points += 400 * level;
-			}
+			
 			gotTetris = true;
-			break;
-		}
-		if(linesCleared >= 10) {		//Next level counter
-			linesCleared -= 10;
-			nextLevel();
+			break;*/
 		}
 		
+		if(linesCleared >= nextLevelLines * level)
+			level++;
 	}
-	public static int getPoints() {
+	
+	public static int getPoints()
+	{
 		return points;
 	}
-	public void changeLevel(int level) {
-		this.level = level;
-	}
-	public void nextLevel()
+	
+	public static int getLevel()
 	{
-		this.level++;
+		return level;
 	}
-	public void gotTetris(boolean isTrue) {
+	
+	public static int getLinesCleared()
+	{
+		return linesCleared;
+	}
+	
+	public void changeLevel(int l)
+	{
+		level = l;
+	}
+	
+	public void gotTetris(boolean isTrue)
+	{
 		gotTetris = isTrue;
 	}
 
