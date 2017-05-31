@@ -13,6 +13,13 @@ public class Game
 	{
 		//put stuff here to make it run repeatedly without delay
 		//currentSpeed = LEVEL1_SPEED - (NEXT_LEVEL_SPEED_INC * (PointCounter.getLevel() - 1));
+		
+		/*genBlock = false;
+		if(PlayingField.hitBottom())
+			genBlock = true;
+		
+		if(genBlock)
+			PlayingField.makeBlockAppear();*/
 	}
 	
 	public static void downLoop()
@@ -23,7 +30,7 @@ public class Game
 		{
 			public void run()
 			{
-				if(!isPaused)
+				if(!isPaused && !KeyboardListener.isTitleScreen())
 				{
 					genBlock = false;
 					if(PlayingField.hitBottom())
@@ -41,6 +48,14 @@ public class Game
 				}
 			}
 		}, 1000, 1000);
+	}
+	
+	public static void Reset()
+	{
+		PlayingField.setGameOver(false);
+		PlayingField.resetArray();
+		PointCounter.resetPointCounter();
+		PlayingField.makeBlockAppear();
 	}
 	
 	public static void Pause()

@@ -9,6 +9,8 @@ public class KeyboardListener implements KeyListener
 	private final String spinLeftKey = "X";
 	private final String spinRightKey = "Z";
 	private final String pauseKey = "P";
+	private final String startKey = "Enter";
+	private static boolean isTitleScreen = true;
 	
 	public void keyPressed(KeyEvent e)
 	{
@@ -30,6 +32,17 @@ public class KeyboardListener implements KeyListener
 				
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinRightKey))
 				BlockManipulator.Spin("right");
+			
+			if(KeyEvent.getKeyText(e.getKeyCode()).equals(startKey))
+			{
+				if(PlayingField.isGameOver())
+				{
+					isTitleScreen = true;
+					Game.Reset();
+				}
+				else
+					isTitleScreen = false;
+			}
 		}
 		if(KeyEvent.getKeyText(e.getKeyCode()).equals(pauseKey))
 			Game.Pause();
@@ -37,4 +50,9 @@ public class KeyboardListener implements KeyListener
 		
 	public void keyReleased(KeyEvent arg0) {}
 	public void keyTyped(KeyEvent arg0) {}
+	
+	public static boolean isTitleScreen()
+	{
+		return isTitleScreen;
+	}
 }

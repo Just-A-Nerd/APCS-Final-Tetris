@@ -34,11 +34,14 @@ public class Window extends JPanel
 	
 	public void paint(Graphics g)
 	{
-		if(!(PlayingField.isGameOver()))
+		if(!(PlayingField.isGameOver()) && !(KeyboardListener.isTitleScreen()))
 			GraphicsDrawer.drawGraphics(g);
 		
 		if(PlayingField.isGameOver())
 			GraphicsDrawer.drawGameOver(g);
+		
+		if(KeyboardListener.isTitleScreen())
+			GraphicsDrawer.drawTitleScreen(g);
 	}
 	
     /*public void actionPerformed(ActionEvent e)
@@ -67,7 +70,7 @@ public class Window extends JPanel
 		Game.downLoop();
 		while(true)
 		{
-			//Game.Update();
+			Game.Update();
 			window.repaint();
 			try
 			{

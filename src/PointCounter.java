@@ -56,5 +56,11 @@ public class PointCounter
 	{
 		gotTetris = isTrue;
 	}
-
+	
+	public static void resetPointCounter()
+	{
+		points = 0;
+		level = 1;
+		linesCleared = 0;
+	}
 }

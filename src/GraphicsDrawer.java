@@ -19,6 +19,7 @@ public class GraphicsDrawer
 		Graphics2D g2 = (Graphics2D) g;
 		//Field
 		g2.setPaint(new Color(0, 0 ,0 ));
+		g2.fill(new Rectangle2D.Double(0,0,1000,1000));
 		g2.fill(new Rectangle2D.Double(PIXELS_OFF_EDGE, PIXELS_OFF_EDGE, PlayingField.getField()[0].length * BLOCK_SIZE, (PlayingField.getField().length - 2) * BLOCK_SIZE));
 		//Border of Field
 		g2.setPaint(new Color(255, 255, 255));
@@ -121,10 +122,25 @@ public class GraphicsDrawer
 	{
 		Graphics2D g2 = (Graphics2D) g;
 		
-		g2.setPaint(new Color(50,50,50));
+		//g2.setPaint(new Color(50,50,50));
 		//g2.fill(new Rectangle2D.Double(0,0,1000,1000));
 		g2.setPaint(new Color(255,255,255));
 		g2.setFont(new Font("Terminus Re33", 0, 80));
 		g2.drawString("Game Over", 75, 400);
+		g2.setFont(new Font("Terminus Re33", 0, 40));
+		g2.drawString("Press Enter to Restart", 500, 500);
+	}
+	
+	public static void drawTitleScreen(Graphics g)
+	{
+		Graphics2D g2 = (Graphics2D) g;
+		
+		g2.setPaint(new Color(50,50,50));
+		g2.fill(new Rectangle2D.Double(0,0,1000,1000));
+		g2.setPaint(new Color(255,255,255));
+		g2.setFont(new Font("Terminus Re33", 0, 80));
+		g2.drawString("Tetris/Pentris", 190, 400);
+		g2.setFont(new Font("Terminus Re33", 0, 40));
+		g2.drawString("Press Enter to Start", 270, 500);
 	}
 }

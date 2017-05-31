@@ -27,6 +27,11 @@ public class PlayingField
 		return nextBlock;
 	}
 	
+	public static void resetArray()
+	{
+		field = new BlockSquare[height][width];
+	}
+	
 	public static Block computeRandom()
 	{
 		if(randList.size() == 0)
@@ -109,6 +114,11 @@ public class PlayingField
 		return isGameOver;
 	}
 	
+	public static void setGameOver(boolean isGO)
+	{
+		isGameOver = isGO;
+	}
+	
 	public static boolean hitBottom()
 	{
 		boolean isHit = false;
@@ -129,9 +139,11 @@ public class PlayingField
 							{
 								if(field[k][m] != null && field[k][m].getName() != "x")
 								{
+									System.out.println("hitb1");
+									
 									field[k][m].setName("x");
 									field[k][m].setAxisOfRotation(false);
-									System.out.println("hitb");
+									System.out.println("hitb2");
 								}
 							}
 						}

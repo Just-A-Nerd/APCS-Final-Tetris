@@ -3,8 +3,8 @@ import java.awt.Color;
 public class Block5X implements Block
 {
 	private BlockSquare[][] block = new BlockSquare[3][3];
-	private Color fillColor = new Color(50,50,50);
-	private Color outlineColor = new Color(100,100,100);
+	private Color fillColor = new Color(30,30,30);
+	private Color outlineColor = new Color(80,80,80);
 	
 	public Block5X()
 	{
