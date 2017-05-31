@@ -19,7 +19,7 @@ public class GraphicsDrawer
 		Graphics2D g2 = (Graphics2D) g;
 		//Field
 		g2.setPaint(new Color(0, 0 ,0 ));
-		g2.fill(new Rectangle2D.Double(PIXELS_OFF_EDGE, PIXELS_OFF_EDGE, PlayingField.getField()[0].length * BLOCK_SIZE, (PlayingField.getField().length - 2) * BLOCK_SIZE));
+		g2.fill(new Rectangle2D.Double(PIXELS_OFF_EDGE, 0, PlayingField.getField()[0].length * BLOCK_SIZE, (PlayingField.getField().length) * BLOCK_SIZE));
 		//Border of Field
 		g2.setPaint(new Color(255, 255, 255));
 		g2.drawLine(PIXELS_OFF_EDGE, 
