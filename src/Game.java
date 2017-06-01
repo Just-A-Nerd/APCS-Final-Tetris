@@ -33,8 +33,11 @@ public class Game
 				if(!isPaused && !KeyboardListener.isTitleScreen())
 				{
 					genBlock = false;
-					if(PlayingField.hitBottom())
+					if(PlayingField.doesHitBottom())
+					{
+						PlayingField.hitBottom();
 						genBlock = true;
+					}
 					
 					int numLines = PlayingField.clearLines();
 					PointCounter.addLinePoints(numLines);

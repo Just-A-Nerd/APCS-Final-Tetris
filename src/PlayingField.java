@@ -6,30 +6,16 @@ public class PlayingField
 	private static int height = 20 + bufferCell;
 	private static int width = 10;
 	private static BlockSquare[][] field = new BlockSquare[height][width];
-	private static int numBlockSpecies = 6;
+	//private static int numBlockSpecies = 14;
 	private static ArrayList<Block> initList = new ArrayList<Block>();
 	private static ArrayList<Block> randList = new ArrayList<Block>();
 	private static boolean isGameOver = false;
 	private static Block nextBlock = null;
+	private static Block currentBlock = null;
 	
 	public static BlockSquare[][] getField()
 	{
 		return field;
-	}
-  
-	public static int getBuffer()
-	{
-		return bufferCell;
-	}
-	
-	public static Block getNextBlock()
-	{
-		return nextBlock;
-	}
-	
-	public static void resetArray()
-	{
-		field = new BlockSquare[height][width];
 	}
 	
 	public static Block computeRandom()
@@ -49,7 +35,8 @@ public class PlayingField
 			initList.add(new Block5W());
 			initList.add(new Block5X());
 			initList.add(new Block5Z());
-			for(int i = 0; i < numBlockSpecies; i++)
+			//initList.add(new Block5N());
+			for(int i = 0; i < initList.size(); i++)
 			{
 				int rand = (int) (Math.random() * initList.size());
 				randList.add(initList.get(rand));
@@ -87,6 +74,7 @@ public class PlayingField
 			nextBlock = computeRandom();
 		
 		Block block = nextBlock;
+		currentBlock = block;
 		
 		for(int i = 0; i < block.getBlockArray().length; i++)
 		{
@@ -109,17 +97,7 @@ public class PlayingField
 		nextBlock = computeRandom();
 	}
 	
-	public static boolean isGameOver()
-	{
-		return isGameOver;
-	}
-	
-	public static void setGameOver(boolean isGO)
-	{
-		isGameOver = isGO;
-	}
-	
-	public static boolean hitBottom()
+	public static boolean doesHitBottom()
 	{
 		boolean isHit = false;
 		for(int i = 0; i < field.length; i++)
@@ -131,27 +109,30 @@ public class PlayingField
 					if(i == field.length - 1 || (field[i+1][j] != null && field[i+1][j].getName() == "x"))
 					{
 						//found a BlockSquare that is at hit something
-						isHit = true;
-						
-						for(int k = 0; k < field.length; k++)
-						{
-							for(int m = 0; m < field[0].length; m++)
-							{
-								if(field[k][m] != null && field[k][m].getName() != "x")
-								{
-									System.out.println("hitb1");
-									
-									field[k][m].setName("x");
-									field[k][m].setAxisOfRotation(false);
-									System.out.println("hitb2");
-								}
-							}
-						}
+						isHit = true;	
 					}
 				}
 			}
 		}
 		return isHit;
+	}
+	
+	public static void hitBottom()
+	{
+		for(int k = 0; k < field.length; k++)
+		{
+			for(int m = 0; m < field[0].length; m++)
+			{
+				if(field[k][m] != null && field[k][m].getName() != "x")
+				{
+					System.out.println("hitb1");
+					
+					field[k][m].setName("x");
+					field[k][m].setAxisOfRotation(false);
+					System.out.println("hitb2");
+				}
+			}
+		}
 	}
 	
 	public static int clearLines()
@@ -188,5 +169,35 @@ public class PlayingField
 			}	
 		}
 		return count;
+	}
+	
+	public static int getBuffer()
+	{
+		return bufferCell;
+	}
+	
+	public static Block getNextBlock()
+	{
+		return nextBlock;
+	}
+	
+	public static Block getCurrentBlock()
+	{
+		return currentBlock;
+	}
+	
+	public static void resetArray()
+	{
+		field = new BlockSquare[height][width];
+	}
+	
+	public static boolean isGameOver()
+	{
+		return isGameOver;
+	}
+	
+	public static void setGameOver(boolean isGO)
+	{
+		isGameOver = isGO;
 	}
 }
