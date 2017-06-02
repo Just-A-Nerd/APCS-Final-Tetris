@@ -68,9 +68,10 @@ public class Window extends JPanel
 		KeyListener listener = new KeyboardListener();
 		frame.addKeyListener(listener);
 		Game.downLoop();
+		PlayingField.makeBlockAppear();
 		while(true)
 		{
-			Game.Update();
+			//Game.Update();
 			window.repaint();
 			try
 			{

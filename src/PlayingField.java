@@ -125,11 +125,11 @@ public class PlayingField
 			{
 				if(field[k][m] != null && field[k][m].getName() != "x")
 				{
-					System.out.println("hitb1");
+					//System.out.println("hitb1");
 					
 					field[k][m].setName("x");
 					field[k][m].setAxisOfRotation(false);
-					System.out.println("hitb2");
+					//System.out.println("hitb2");
 				}
 			}
 		}

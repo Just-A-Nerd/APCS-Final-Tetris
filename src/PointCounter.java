@@ -4,7 +4,7 @@ public class PointCounter
 	private static int linesCleared = 0;
 	private static boolean gotTetris = false;
 	private static int level = 1;
-	private static int nextLevelLines = 10;
+	private static int nextLevelLines = 1;
 	private static final int LINES_1 = 100;
 	private static final int LINES_2 = 300;
 	private static final int LINES_3 = 500;
@@ -34,6 +34,7 @@ public class PointCounter
 		if(linesCleared >= nextLevelLines * level)
 		{
 			level++;
+			Game.changeTimer();
 		}
 	}
 	
@@ -52,7 +53,7 @@ public class PointCounter
 		return linesCleared;
 	}
 	
-	public void gotTetris(boolean isTrue)
+	public static void gotTetris(boolean isTrue)
 	{
 		gotTetris = isTrue;
 	}
@@ -62,5 +63,10 @@ public class PointCounter
 		points = 0;
 		level = 1;
 		linesCleared = 0;
+	}
+	
+	public static void setLevel(int l)
+	{
+		level = l;
 	}
 }
