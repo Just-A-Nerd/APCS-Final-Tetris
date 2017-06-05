@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 public class Window extends JPanel
 {
 	boolean gameOverSound = false;
+
 	public Window()
 	{
 		//JLabel jlbHelloWorld = new JLabel("test");
@@ -35,8 +36,7 @@ public class Window extends JPanel
 	
 	public void paint(Graphics g)
 	{
-		if(!(PlayingField.isGameOver()))
-		{
+		if(!(PlayingField.isGameOver()) && !(KeyboardListener.isTitleScreen()))
 			GraphicsDrawer.drawGraphics(g);
 		}
 		if(PlayingField.isGameOver())
@@ -48,18 +48,11 @@ public class Window extends JPanel
 				Sound.GAMEOVER.play();
 			}
 		}
+		if(KeyboardListener.isTitleScreen())
+			GraphicsDrawer.drawTitleScreen(g);
+
 	}
 	
-    /*public void actionPerformed(ActionEvent e)
-    {
-    	setVisible(true);
-    }
-
-    public void windowClosing(WindowEvent e)
-    {
-    	dispose();
-    	System.exit(0);
-    }*/
     
     public static void main(String[] args)
     {
@@ -75,6 +68,7 @@ public class Window extends JPanel
 		frame.addKeyListener(listener);
 		Game.downLoop();
 		Sound.BACKGROUND.loop();
+
 		while(true)
 		{
 			//Game.Update();
