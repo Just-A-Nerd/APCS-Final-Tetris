@@ -12,30 +12,46 @@ public class PlayingField
 	private static boolean isGameOver = false;
 	private static Block nextBlock = null;
 	private static Block currentBlock = null;
+	private static int gameType = 1;
 	
 	public static BlockSquare[][] getField()
 	{
 		return field;
 	}
 	
+	public static void setGameType(int t)
+	{
+		gameType = t;
+	}
+	
 	public static Block computeRandom()
 	{
 		if(randList.size() == 0)
 		{
-			initList.add(new BlockL());
-			initList.add(new BlockJ());
-			initList.add(new BlockT());
-			initList.add(new BlockS());
-			initList.add(new BlockZ());
-			initList.add(new BlockO());
-			initList.add(new Block5F());
-			initList.add(new Block5P());
-			initList.add(new Block5T());
-			initList.add(new Block5U());
-			initList.add(new Block5W());
-			initList.add(new Block5X());
-			initList.add(new Block5Z());
-			//initList.add(new Block5N());
+			System.out.println(gameType);
+			if(gameType == 1 || gameType == 2)
+			{
+				initList.add(new BlockL());
+				initList.add(new BlockJ());
+				initList.add(new BlockT());
+				initList.add(new BlockS());
+				initList.add(new BlockZ());
+				initList.add(new BlockO());
+			}
+			if(gameType == 1 || gameType == 3)
+			{
+				initList.add(new Block5F());
+				initList.add(new Block5P());
+				initList.add(new Block5T());
+				initList.add(new Block5U());
+				initList.add(new Block5W());
+				initList.add(new Block5X());
+				initList.add(new Block5Z());
+				initList.add(new Block5FB());
+				initList.add(new Block5PB());
+				initList.add(new Block5ZB());
+				//initList.add(new Block5I());
+			}
 			for(int i = 0; i < initList.size(); i++)
 			{
 				int rand = (int) (Math.random() * initList.size());

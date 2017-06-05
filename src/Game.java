@@ -6,6 +6,7 @@ public class Game
 	private static Timer timer = new Timer();
 	static boolean isPaused = false;
 	private static boolean genBlock;
+	private static boolean isFirstBlock = true;
 	private static final int LEVEL1_SPEED = 1000;
 	private static final int NEXT_LEVEL_SPEED_INC1 = 100;
 	private static final int NEXT_LEVEL_SPEED_INC2 = 10;
@@ -26,6 +27,9 @@ public class Game
 			{
 				if(!isPaused && !KeyboardListener.isTitleScreen())
 				{
+					if(isFirstBlock)
+						PlayingField.makeBlockAppear();
+					
 					genBlock = false;
 					if(PlayingField.doesHitBottom())
 					{
@@ -43,6 +47,8 @@ public class Game
 					
 					if(genBlock)
 						PlayingField.makeBlockAppear();
+					
+					isFirstBlock = false;
 					
 					System.out.println(currentSpeed);
 					

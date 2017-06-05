@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 
 public class Window extends JPanel
 {
+	
 	public Window()
 	{
 		//JLabel jlbHelloWorld = new JLabel("test");
@@ -68,7 +69,7 @@ public class Window extends JPanel
 		KeyListener listener = new KeyboardListener();
 		frame.addKeyListener(listener);
 		Game.downLoop();
-		PlayingField.makeBlockAppear();
+		//PlayingField.makeBlockAppear();
 		while(true)
 		{
 			//Game.Update();

@@ -4,7 +4,7 @@ public class PointCounter
 	private static int linesCleared = 0;
 	private static boolean gotTetris = false;
 	private static int level = 1;
-	private static int nextLevelLines = 1;
+	private static int nextLevelLines = 10;
 	private static final int LINES_1 = 100;
 	private static final int LINES_2 = 300;
 	private static final int LINES_3 = 500;

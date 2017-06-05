@@ -3,8 +3,7 @@ A version of tetris for our APCS Final Project. Other block shapes will be inclu
 
 #### Things to be done before Tuesday, June 6
 
-Make leveling up increase game speed
-Add O and I blocks
+Add I block
 Add pentiminoes
 
 #### Other things to be done

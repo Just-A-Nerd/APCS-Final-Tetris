@@ -10,6 +10,9 @@ public class KeyboardListener implements KeyListener
 	private final String spinRightKey = "Z";
 	private final String pauseKey = "P";
 	private final String startKey = "Enter";
+	private final String modeSelect1 = "1";
+	private final String modeSelect2 = "2";
+	private final String modeSelect3 = "3";
 	private static boolean isTitleScreen = true;
 	
 	public void keyPressed(KeyEvent e)
@@ -44,8 +47,15 @@ public class KeyboardListener implements KeyListener
 					isTitleScreen = false;
 			}
 		}
-		if(KeyEvent.getKeyText(e.getKeyCode()).equals(pauseKey))
+		if(KeyEvent.getKeyText(e.getKeyCode()).equals(pauseKey) && !isTitleScreen)
 			Game.Pause();
+		
+		if(isTitleScreen && KeyEvent.getKeyText(e.getKeyCode()).equals(modeSelect1))
+			PlayingField.setGameType(1);
+		if(isTitleScreen && KeyEvent.getKeyText(e.getKeyCode()).equals(modeSelect2))
+			PlayingField.setGameType(2);
+		if(isTitleScreen && KeyEvent.getKeyText(e.getKeyCode()).equals(modeSelect3))
+			PlayingField.setGameType(3);
 	}
 		
 	public void keyReleased(KeyEvent arg0) {}
