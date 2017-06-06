@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 public class Window extends JPanel
 {
 	boolean gameOverSound = false;
+	boolean backgroundSound = false;
 
 	public Window()
 	{
@@ -37,24 +38,33 @@ public class Window extends JPanel
 	public void paint(Graphics g)
 	{
 		if(!(PlayingField.isGameOver()) && !(KeyboardListener.isTitleScreen()))
+		{
+			if(!backgroundSound) {
+				Sound.BACKGROUND.loop();
+				backgroundSound = true;
+			}
 			GraphicsDrawer.drawGraphics(g);
 		}
 		if(PlayingField.isGameOver())
 		{
 			GraphicsDrawer.drawGameOver(g);
 			Sound.BACKGROUND.stop();
+			backgroundSound = false;
 			if (!gameOverSound) {
 				gameOverSound = true;
+				
 				Sound.GAMEOVER.play();
 			}
 		}
 		if(KeyboardListener.isTitleScreen())
+		{
+			gameOverSound = false;
 			GraphicsDrawer.drawTitleScreen(g);
-
+		}
 	}
 	
     
-    public static void main(String[] args)
+    public static void main (String[] args)
     {
     	JFrame frame = new JFrame("Tetris");
 		Window window = new Window();
@@ -67,7 +77,7 @@ public class Window extends JPanel
 		KeyListener listener = new KeyboardListener();
 		frame.addKeyListener(listener);
 		Game.downLoop();
-		Sound.BACKGROUND.loop();
+		
 
 		while(true)
 		{

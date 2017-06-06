@@ -51,11 +51,20 @@ public class KeyboardListener implements KeyListener
 			Game.Pause();
 		
 		if(isTitleScreen && KeyEvent.getKeyText(e.getKeyCode()).equals(modeSelect1))
+		{
 			PlayingField.setGameType(1);
+			Sound.BLIP.play();
+		}
 		if(isTitleScreen && KeyEvent.getKeyText(e.getKeyCode()).equals(modeSelect2))
+		{
 			PlayingField.setGameType(2);
+			Sound.BLIP.play();
+		}
 		if(isTitleScreen && KeyEvent.getKeyText(e.getKeyCode()).equals(modeSelect3))
+		{
 			PlayingField.setGameType(3);
+			Sound.BLIP.play();
+		}
 	}
 		
 	public void keyReleased(KeyEvent arg0) {}
