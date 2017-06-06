@@ -39,8 +39,8 @@ public class Game
 			{
 				if(!isPaused && !KeyboardListener.isTitleScreen())
 				{
-					if(isFirstBlock)
-						PlayingField.makeBlockAppear();
+					//if(isFirstBlock)
+					//	PlayingField.makeBlockAppear();
 					
 					genBlock = false;
 					if(PlayingField.doesHitBottom())
@@ -60,7 +60,7 @@ public class Game
 					if(genBlock)
 						PlayingField.makeBlockAppear();
 					
-					isFirstBlock = false;
+					//isFirstBlock = false;
 					
 					System.out.println(currentSpeed);
 					
@@ -82,12 +82,14 @@ public class Game
 	
 	public static void Reset()
 	{
+		PlayingField.resetRandLists();
 		PlayingField.setGameOver(false);
+		
 		currentSpeed = LEVEL1_SPEED;
 		PlayingField.resetArray();
 		PointCounter.resetPointCounter();
-		PlayingField.makeBlockAppear();
 		
+		PlayingField.resetRandLists();
 	}
 	
 	public static void Pause()

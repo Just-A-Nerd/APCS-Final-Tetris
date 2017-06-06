@@ -7,8 +7,8 @@ public class PlayingField
 	private static int width = 10;
 	private static BlockSquare[][] field = new BlockSquare[height][width];
 	//private static int numBlockSpecies = 14;
-	private static ArrayList<Block> initList = new ArrayList<Block>();
-	private static ArrayList<Block> randList = new ArrayList<Block>();
+	static ArrayList<Block> initList = new ArrayList<Block>();
+	static ArrayList<Block> randList = new ArrayList<Block>();
 	private static boolean isGameOver = false;
 	private static Block nextBlock = null;
 	private static Block currentBlock = null;
@@ -22,6 +22,14 @@ public class PlayingField
 	public static void setGameType(int t)
 	{
 		gameType = t;
+	}
+	
+	public static void resetRandLists()
+	{
+		initList = new ArrayList<Block>();
+		randList = new ArrayList<Block>();
+		nextBlock = null;
+		System.out.println("asdfaa");
 	}
 	
 	public static Block computeRandom()

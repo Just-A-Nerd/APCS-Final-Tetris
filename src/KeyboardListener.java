@@ -44,7 +44,10 @@ public class KeyboardListener implements KeyListener
 					Game.Reset();
 				}
 				else
+				{
 					isTitleScreen = false;
+					PlayingField.makeBlockAppear();
+				}
 			}
 		}
 		if(KeyEvent.getKeyText(e.getKeyCode()).equals(pauseKey) && !isTitleScreen)
