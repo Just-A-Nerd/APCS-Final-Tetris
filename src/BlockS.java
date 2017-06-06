@@ -3,8 +3,8 @@ import java.awt.Color;
 public class BlockS implements Block
 {
 	private BlockSquare[][] block = new BlockSquare[2][3];
-	private Color fillColor = new Color(100,100,100);
-	private Color outlineColor = new Color(150,100,100);
+	private Color fillColor = new Color(0,0,120);
+	private Color outlineColor = new Color(20,20,170);
 	
 	public BlockS()
 	{
