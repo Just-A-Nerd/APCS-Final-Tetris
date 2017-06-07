@@ -45,6 +45,7 @@ public class PlayingField
 				initList.add(new BlockS());
 				initList.add(new BlockZ());
 				initList.add(new BlockO());
+//				initList.add(new BlockI());
 			}
 			if(gameType == 1 || gameType == 3)
 			{

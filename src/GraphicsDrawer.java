@@ -154,4 +154,14 @@ public class GraphicsDrawer
 		g2.drawString("Press 2 for Tetriminoes only", 350, 760);
 		g2.drawString("Press 3 for Pentiminoes only", 350, 810);
 	}
+	
+	public static void drawPauseGraphics(Graphics g)
+	{
+		Graphics2D g2 = (Graphics2D) g;
+		
+		g2.setPaint(new Color(255,255,255));
+		g2.setFont(new Font("Terminus Re33", 0, 80));
+		g2.drawString("Paused", 115, 450);
+	}
+	
 }

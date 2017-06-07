@@ -96,4 +96,8 @@ public class Game
 	{
 		isPaused = !isPaused;
 	}
+	public static boolean isPaused()
+	{
+		return isPaused;
+	}
 }

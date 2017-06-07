@@ -61,6 +61,10 @@ public class Window extends JPanel
 			gameOverSound = false;
 			GraphicsDrawer.drawTitleScreen(g);
 		}
+		if(Game.isPaused())
+		{
+			GraphicsDrawer.drawPauseGraphics(g);
+		}
 	}
 	
     

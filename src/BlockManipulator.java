@@ -247,8 +247,15 @@ public class BlockManipulator
 					if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].isAxisOfRotation())
 					{
 						System.out.println("weoiurou");
-						if(PlayingField.getField()[i][j].getName().equals("5N"))
+						if(PlayingField.getField()[i][j].getName().equals("I"))
 						{
+							/*
+							 * u = up
+							 * l = left
+							 * d = down
+							 * r = right
+							 */
+							System.out.println(blockPos);
 							switch(blockPos)
 							{
 								case 0: axisPos = "tl";
@@ -299,60 +306,81 @@ public class BlockManipulator
 							{
 								if(axisPos.equals("tl"))
 								{
-									System.out.println("eee");
-									//sets top to left
-									//PlayingField.getField()[i-1][j] = temp[1][1-1];
-									//PlayingField.getField()[i-1][j+1] = temp[1-1][1-1];
-							
-//									//sets left to bottom
-//									PlayingField.getField()[i][j-1] = temp[1+2][1];
-//									PlayingField.getField()[i-1][j-1] = temp[1+2][1+1];
-//								
-//									//sets bottom to right
-//									PlayingField.getField()[i+2][j] = temp[1-1][1+2];
-//									PlayingField.getField()[i+2][j+1] = temp[1][1+2];
-//							
-//									//sets right to top
-//									PlayingField.getField()[i-1][j+2] = temp[1-1][1+1];
-//									PlayingField.getField()[i][j+2] = temp[1-1][1];
-//									
-//									//no need to rotate corners; no blocks use them
-//									
-//									//axises of rotation
-//									PlayingField.getField()[i][j+1] = temp[1][1];
-//									PlayingField.getField()[i+1][j+1] = temp[1][1+1];
-//									PlayingField.getField()[i+1][j] = temp[1+1][1+1];
-//									//set current axis of rotation
-//									PlayingField.getField()[i][j] = temp[1+2][1];
+									System.out.println("top left -> right");
+									//sets left to top
+									PlayingField.getField()[i-1][j+1] = temp[1][1-1];
+									PlayingField.getField()[i-1][j] = temp[1+1][1-1];
+									
+									//sets top to right
+									PlayingField.getField()[i][j+2] = temp[1-1][1];
+									PlayingField.getField()[i+1][j+2] = temp[1-1][1+1];
+									
+									//sets right to bottom
+									PlayingField.getField()[i+2][j+1] = temp[1][1+2];
+									PlayingField.getField()[i+2][j] = temp[1+1][1+2];
+									
+									//sets bottom to left
+									PlayingField.getField()[i][j-1] = temp[1+2][1];
+									PlayingField.getField()[i+1][j-1] = temp[1+2][1+1];
+									
+									//no need to rotate corners; no blocks use them
+									
+									//axises of rotation
+									PlayingField.getField()[i][j+1] = temp[1][1];
+									PlayingField.getField()[i+1][j+1] = temp[1][1+1];
+									PlayingField.getField()[i+1][j] = temp[1+1][1+1];
+									//set current axis of rotation
+									PlayingField.getField()[i][j] = temp[1+1][1];
+									
+									blockPos++;
 								}
+								
+								
 							}
 							
 							else if(direction.equals("left"))
 							{
-								//sets top to left
-								PlayingField.getField()[i][j-1] = temp[1-1][1];
-						
-								//sets left to bottom
-								PlayingField.getField()[i+1][j] = temp[1][1-1];
-							
-								//sets bottom to right
-								PlayingField.getField()[i][j+1] = temp[1+1][1];
-						
-								//sets right to top
-								PlayingField.getField()[i-1][j] = temp[1][1+1];
-						
-								//corners
-								PlayingField.getField()[i+1][j+1] = temp[1+1][1-1];
-								PlayingField.getField()[i+1][j-1] = temp[1-1][1-1];
-								PlayingField.getField()[i-1][j-1] = temp[1-1][1+1];
-								PlayingField.getField()[i-1][j+1] = temp[1+1][1+1];
+								if(axisPos.equals("tr"))
+								{
+									System.out.println("top right -> left");
+									//sets left to bottom
+									PlayingField.getField()[i+2][j] = temp[1][1-1];
+									PlayingField.getField()[i+2][j+1] = temp[1+1][1-1];
+									
+									//sets bottom to right
+									PlayingField.getField()[i+1][j+2] = temp[1+2][1];
+									PlayingField.getField()[i][j+2] = temp[1+2][1+1];
+									
+									//sets right to top
+									PlayingField.getField()[i-1][j] = temp[1][1+2];
+									PlayingField.getField()[i-1][j+1] = temp[1+1][1+2];
+									
+									//sets top to left
+									PlayingField.getField()[i+1][j-1] = temp[1-1][1];
+									PlayingField.getField()[i][j-1] = temp[1-1][1+1];
+									
+									//no need to rotate corners; no blocks use them
+									
+									//axises of rotation
+									PlayingField.getField()[i][j+1] = temp[1][1];
+									PlayingField.getField()[i+1][j+1] = temp[1][1+1];
+									PlayingField.getField()[i+1][j] = temp[1+1][1+1];
+									//set current axis of rotation
+									PlayingField.getField()[i][j] = temp[1+1][1];
+									
+									blockPos--;
+								}
 							}
 							
 							if(blockPos == 3)
 								blockPos = 0;
 							else
-								blockPos++;
-								
+								;
+							if(blockPos == -1)
+							{
+								blockPos = 3;
+							}
+							
 							return;
 						}
 					}
