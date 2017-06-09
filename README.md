@@ -1,13 +1,12 @@
 # APCS-Final-Tetris
 A version of tetris for our APCS Final Project. Other block shapes will be included.
 
-#### Things to be done before Tuesday, June 6
+#### Things to be done
+Mak I block spin correctly
 
-Add I block
-Add pentiminoes
+Add 4x4 pentominoes
 
-#### Other things to be done
-Music and sound effects
+More sound effects
 
 #### Known bugs
 Blocks can't move during the loop interval when they are at the bottommost point
