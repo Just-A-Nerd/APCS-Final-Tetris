@@ -73,7 +73,9 @@ public class Window extends JPanel
     	JFrame frame = new JFrame("Tetris");
 		Window window = new Window();
 		frame.add(window);
-		frame.setSize(1000,1000);
+		//frame.setSize(1920,1080);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		frame.setUndecorated(true);
 		frame.setFocusable(true);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

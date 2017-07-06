@@ -19,9 +19,20 @@ public class PlayingField
 		return field;
 	}
 	
+	public static int getGameType()
+	{
+		return gameType;
+	}
+	
 	public static void setGameType(int t)
 	{
 		gameType = t;
+		if(gameType < 1)
+			gameType = 1;
+		else if(gameType > 3)
+			gameType = 3;
+		else
+			Sound.BLIP.play();
 	}
 	
 	public static void resetRandLists()

@@ -5,6 +5,7 @@ public class KeyboardListener implements KeyListener
 {
 	private final String moveLeftKey = "Left";
 	private final String moveRightKey = "Right";
+	private final String moveUpKey = "Up";
 	private final String moveDownKey = "Down";
 	private final String spinLeftKey = "X";
 	private final String spinRightKey = "Z";
@@ -27,8 +28,23 @@ public class KeyboardListener implements KeyListener
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveRightKey))
 				BlockManipulator.Move("right");
 			
+			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveUpKey))
+			{
+				if(isTitleScreen)
+				{
+					PlayingField.setGameType(PlayingField.getGameType() - 1);
+				}
+			}
+			
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveDownKey))
-				BlockManipulator.Move("down");
+			{
+				if(isTitleScreen)
+				{
+					PlayingField.setGameType(PlayingField.getGameType() + 1);
+				}
+				else
+					BlockManipulator.Move("down");
+			}
 				
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinLeftKey))
 				BlockManipulator.Spin("left");
@@ -53,7 +69,7 @@ public class KeyboardListener implements KeyListener
 		if(KeyEvent.getKeyText(e.getKeyCode()).equals(pauseKey) && !isTitleScreen)
 			Game.Pause();
 		
-		if(isTitleScreen && KeyEvent.getKeyText(e.getKeyCode()).equals(modeSelect1))
+		/*if(isTitleScreen && KeyEvent.getKeyText(e.getKeyCode()).equals(modeSelect1))
 		{
 			PlayingField.setGameType(1);
 			Sound.BLIP.play();
@@ -67,7 +83,7 @@ public class KeyboardListener implements KeyListener
 		{
 			PlayingField.setGameType(3);
 			Sound.BLIP.play();
-		}
+		}*/
 	}
 		
 	public void keyReleased(KeyEvent arg0) {}

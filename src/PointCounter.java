@@ -13,7 +13,7 @@ public class PointCounter
 	public static void addLinePoints(int lines)
 	{
 		linesCleared += lines;
-		
+		//draw the block in the next block display
 		switch(lines)
 		{
 			case 1: points += LINES_1 * level;
