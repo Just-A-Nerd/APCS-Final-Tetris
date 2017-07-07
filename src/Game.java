@@ -20,8 +20,8 @@ public class Game
 	private static boolean genBlock;
 	private static boolean isFirstBlock = true;
 	private static final int LEVEL1_SPEED = 1000;
-	private static final int NEXT_LEVEL_SPEED_INC1 = 100;
-	private static final int NEXT_LEVEL_SPEED_INC2 = 10;
+	private static final int NEXT_LEVEL_SPEED_INC1 = 200;
+	private static final int NEXT_LEVEL_SPEED_INC2 = 20;
 	private static int currentSpeed = LEVEL1_SPEED;
 	private static TimerTask task;
 	
@@ -73,9 +73,11 @@ public class Game
 	public static void changeTimer()
 	{
 		timer.cancel();
-		if(PointCounter.getLevel() <= 10)
+		if(PointCounter.getLevel() == 1)
+			currentSpeed = LEVEL1_SPEED;
+		else if(PointCounter.getLevel() <= 5)
 			currentSpeed -= NEXT_LEVEL_SPEED_INC1;
-		else if(PointCounter.getLevel() > 10 && PointCounter.getLevel() < 19)
+		else if(PointCounter.getLevel() > 5 && PointCounter.getLevel() < 10)
 			currentSpeed -= NEXT_LEVEL_SPEED_INC2;
 		downLoop();
 	}
@@ -84,12 +86,10 @@ public class Game
 	{
 		PlayingField.resetRandLists();
 		PlayingField.setGameOver(false);
-		
-		currentSpeed = LEVEL1_SPEED;
 		PlayingField.resetArray();
 		PointCounter.resetPointCounter();
-		
-		PlayingField.resetRandLists();
+		changeTimer();
+		Flash.flashLoop();
 	}
 	
 	public static void Pause()

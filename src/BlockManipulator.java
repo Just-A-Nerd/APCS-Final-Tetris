@@ -113,78 +113,69 @@ public class BlockManipulator
 		{
 			for(int j = 0; j < PlayingField.getField()[0].length; j++)
 			{
-				if(axisCount == 1) //3x3 or 5x5 rotation
+				if(axisCount == 1) //3x3 or 5x5 rotation or I block
 				{
 					//checks if the current blocksquare is the axis of rotation of the falling block
 					if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].isAxisOfRotation())
 					{
-						if(!PlayingField.getField()[i][j].getName().equals("5I"))
+						if(PlayingField.getField()[i][j].getName().equals("I"))
 						{
-						int tempW = 3;
-						int tempH = 3;
-						boolean canSpin = true;
-						BlockSquare[][] temp = new BlockSquare[tempH][tempW];
-						
-						//copies current block blocksquares into temp array; determines if spin can happen
-						for(int k = 0; k < tempH; k++)
-						{
-							for(int m = 0; m < tempW; m++)
+							if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].isAxisOfRotation())
 							{
-								if(PlayingField.getField()[i-1+k][j-1+m] == null || PlayingField.getField()[i-1+k][j-1+m].getName() != "x")
-									temp[k][m] = PlayingField.getField()[i-1+k][j-1+m];
-								else
-									canSpin = false;
+								System.out.println(PlayingField.getField()[i][j].getBlockPos());
+								if(PlayingField.getField()[i][j].getBlockPos() == 0)
+								{
+									PlayingField.getField()[i-2][j] = PlayingField.getField()[i][j-2];
+									PlayingField.getField()[i-1][j] = PlayingField.getField()[i][j-1];
+									PlayingField.getField()[i+1][j] = PlayingField.getField()[i][j+1];
+									PlayingField.getField()[i][j-2] = null;
+									PlayingField.getField()[i][j-1] = null;
+									PlayingField.getField()[i][j+1] = null;
+									PlayingField.getField()[i][j].setBlockPos();
+								}
+								else if(PlayingField.getField()[i][j].getBlockPos() == 1)
+								{
+									PlayingField.getField()[i][j-2] = PlayingField.getField()[i-2][j];
+									PlayingField.getField()[i][j-1] = PlayingField.getField()[i-1][j];
+									PlayingField.getField()[i][j+1] = PlayingField.getField()[i+1][j];
+									PlayingField.getField()[i-2][j] = null;
+									PlayingField.getField()[i-1][j] = null;
+									PlayingField.getField()[i+1][j] = null;
+									PlayingField.getField()[i][j].setBlockPos();
+								}
 							}
 						}
-						
-						if(canSpin)
+						else if(PlayingField.getField()[i][j].getName().equals("5I"))
 						{
-							if(direction.equals("right"))
+							if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].isAxisOfRotation())
 							{
-								//sets top to left
-								PlayingField.getField()[i-1][j] = temp[1][1-1];
-						
-								//sets left to bottom
-								PlayingField.getField()[i][j-1] = temp[1+1][1];
-							
-								//sets bottom to right
-								PlayingField.getField()[i+1][j] = temp[1][1+1];
-						
-								//sets right to top
-								PlayingField.getField()[i][j+1] = temp[1-1][1];
-						
-								//corners
-								PlayingField.getField()[i+1][j-1] = temp[1+1][1+1];
-								PlayingField.getField()[i-1][j-1] = temp[1+1][1-1];
-								PlayingField.getField()[i-1][j+1] = temp[1-1][1-1];
-								PlayingField.getField()[i+1][j+1] = temp[1-1][1+1];
+								System.out.println(PlayingField.getField()[i][j].getBlockPos());
+								if(PlayingField.getField()[i][j].getBlockPos() == 0)
+								{
+									PlayingField.getField()[i-2][j] = PlayingField.getField()[i][j-2];
+									PlayingField.getField()[i-1][j] = PlayingField.getField()[i][j-1];
+									PlayingField.getField()[i+1][j] = PlayingField.getField()[i][j+1];
+									PlayingField.getField()[i+2][j] = PlayingField.getField()[i][j+2];
+									PlayingField.getField()[i][j-2] = null;
+									PlayingField.getField()[i][j-1] = null;
+									PlayingField.getField()[i][j+1] = null;
+									PlayingField.getField()[i][j+2] = null;
+									PlayingField.getField()[i][j].setBlockPos();
+								}
+								else if(PlayingField.getField()[i][j].getBlockPos() == 1)
+								{
+									PlayingField.getField()[i][j-2] = PlayingField.getField()[i-2][j];
+									PlayingField.getField()[i][j-1] = PlayingField.getField()[i-1][j];
+									PlayingField.getField()[i][j+1] = PlayingField.getField()[i+1][j];
+									PlayingField.getField()[i][j+2] = PlayingField.getField()[i+2][j];
+									PlayingField.getField()[i-2][j] = null;
+									PlayingField.getField()[i-1][j] = null;
+									PlayingField.getField()[i+1][j] = null;
+									PlayingField.getField()[i+2][j] = null;
+									PlayingField.getField()[i][j].setBlockPos();
+								}
 							}
-							
-							else if(direction.equals("left"))
-							{
-								//sets top to left
-								PlayingField.getField()[i][j-1] = temp[1-1][1];
-						
-								//sets left to bottom
-								PlayingField.getField()[i+1][j] = temp[1][1-1];
-							
-								//sets bottom to right
-								PlayingField.getField()[i][j+1] = temp[1+1][1];
-						
-								//sets right to top
-								PlayingField.getField()[i-1][j] = temp[1][1+1];
-						
-								//corners
-								PlayingField.getField()[i+1][j+1] = temp[1+1][1-1];
-								PlayingField.getField()[i+1][j-1] = temp[1-1][1-1];
-								PlayingField.getField()[i-1][j-1] = temp[1-1][1+1];
-								PlayingField.getField()[i-1][j+1] = temp[1+1][1+1];
-							}
-						}
-						}
-						else //5I block only
-						{
-							boolean canSpin = true;
+							/*boolean canSpin = true;
 							
 							for(int k = 0; k < 5; k++)
 							{
@@ -230,6 +221,71 @@ public class BlockManipulator
 								blockPos = 1;
 							else if(blockPos == 1)
 								blockPos = 0;
+							}*/
+						}
+						
+						else //3x3 rotation
+						{
+							int tempW = 3;
+							int tempH = 3;
+							boolean canSpin = true;
+							BlockSquare[][] temp = new BlockSquare[tempH][tempW];
+							
+							//copies current block blocksquares into temp array; determines if spin can happen
+							for(int k = 0; k < tempH; k++)
+							{
+								for(int m = 0; m < tempW; m++)
+								{
+									if(PlayingField.getField()[i-1+k][j-1+m] == null || PlayingField.getField()[i-1+k][j-1+m].getName() != "x")
+										temp[k][m] = PlayingField.getField()[i-1+k][j-1+m];
+									else
+										canSpin = false;
+								}
+							}
+							
+							if(canSpin)
+							{
+								if(direction.equals("right"))
+								{
+									//sets top to left
+									PlayingField.getField()[i-1][j] = temp[1][1-1];
+							
+									//sets left to bottom
+									PlayingField.getField()[i][j-1] = temp[1+1][1];
+								
+									//sets bottom to right
+									PlayingField.getField()[i+1][j] = temp[1][1+1];
+							
+									//sets right to top
+									PlayingField.getField()[i][j+1] = temp[1-1][1];
+							
+									//corners
+									PlayingField.getField()[i+1][j-1] = temp[1+1][1+1];
+									PlayingField.getField()[i-1][j-1] = temp[1+1][1-1];
+									PlayingField.getField()[i-1][j+1] = temp[1-1][1-1];
+									PlayingField.getField()[i+1][j+1] = temp[1-1][1+1];
+								}
+								
+								else if(direction.equals("left"))
+								{
+									//sets top to left
+									PlayingField.getField()[i][j-1] = temp[1-1][1];
+							
+									//sets left to bottom
+									PlayingField.getField()[i+1][j] = temp[1][1-1];
+								
+									//sets bottom to right
+									PlayingField.getField()[i][j+1] = temp[1+1][1];
+							
+									//sets right to top
+									PlayingField.getField()[i-1][j] = temp[1][1+1];
+							
+									//corners
+									PlayingField.getField()[i+1][j+1] = temp[1+1][1-1];
+									PlayingField.getField()[i+1][j-1] = temp[1-1][1-1];
+									PlayingField.getField()[i-1][j-1] = temp[1-1][1+1];
+									PlayingField.getField()[i-1][j+1] = temp[1+1][1+1];
+								}
 							}
 						}
 					}
@@ -242,19 +298,19 @@ public class BlockManipulator
 				
 				if(axisCount == 2 || axisCount == 3) //4x4 rotation
 				{
-					String axisPos = null;
+					/*String axisPos = null;
 					//checks if the current blocksquare is the axis of rotation of the falling block
 					if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].isAxisOfRotation())
 					{
 						System.out.println("weoiurou");
 						if(PlayingField.getField()[i][j].getName().equals("I"))
 						{
-							/*
+							
 							 * u = up
 							 * l = left
 							 * d = down
 							 * r = right
-							 */
+							 
 							System.out.println(blockPos);
 							switch(blockPos)
 							{
@@ -383,7 +439,7 @@ public class BlockManipulator
 							
 							return;
 						}
-					}
+					}*/
 				}
 			}
 		}

@@ -9,6 +9,7 @@ public class PointCounter
 	private static final int LINES_2 = 300;
 	private static final int LINES_3 = 500;
 	private static final int LINES_4 = 800;
+	private static final int LINES_5 = 1200;
 	
 	public static void addLinePoints(int lines)
 	{
@@ -23,6 +24,9 @@ public class PointCounter
 			case 3: points += LINES_3 * level;
 			break;
 			case 4: points += LINES_4 * level;
+			break;
+			case 5: points += LINES_5 * level;
+			break;
 			
 			/*if(gotTetris)
 				points += 400 * level;

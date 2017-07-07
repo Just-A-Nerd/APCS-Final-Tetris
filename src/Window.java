@@ -68,12 +68,12 @@ public class Window extends JPanel
 	}
 	
     
-    public static void main (String[] args)
+    public static void main(String[] args)
     {
     	JFrame frame = new JFrame("Tetris");
 		Window window = new Window();
 		frame.add(window);
-		//frame.setSize(1920,1080);
+		frame.setSize(1000,1080);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		frame.setUndecorated(true);
 		frame.setFocusable(true);
@@ -83,7 +83,7 @@ public class Window extends JPanel
 		KeyListener listener = new KeyboardListener();
 		frame.addKeyListener(listener);
 		Game.downLoop();
-		
+		Flash.flashLoop();
 
 		while(true)
 		{

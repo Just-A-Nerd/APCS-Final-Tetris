@@ -13,6 +13,7 @@ public class PlayingField
 	private static Block nextBlock = null;
 	private static Block currentBlock = null;
 	private static int gameType = 1;
+	private static int numPentominoes = 11;
 	
 	public static BlockSquare[][] getField()
 	{
@@ -48,7 +49,7 @@ public class PlayingField
 		if(randList.size() == 0)
 		{
 			System.out.println(gameType);
-			if(gameType == 1 || gameType == 2)
+			if(gameType == 1 || gameType == 3)
 			{
 				initList.add(new BlockL());
 				initList.add(new BlockJ());
@@ -56,9 +57,9 @@ public class PlayingField
 				initList.add(new BlockS());
 				initList.add(new BlockZ());
 				initList.add(new BlockO());
-//				initList.add(new BlockI());
+				initList.add(new BlockI());
 			}
-			if(gameType == 1 || gameType == 3)
+			if(gameType == 2 || gameType == 3)
 			{
 				initList.add(new Block5F());
 				initList.add(new Block5P());
@@ -70,8 +71,38 @@ public class PlayingField
 				initList.add(new Block5FB());
 				initList.add(new Block5PB());
 				initList.add(new Block5ZB());
-				//initList.add(new Block5I());
+				initList.add(new Block5I());
 			}
+			/*if(gameType == 3)
+			{
+				for(int i = 0; i < initList.size(); i++)
+				{
+					int randNum = (int) (Math.random() * numPentominoes);
+					switch(randNum)
+					{
+						case 0: initList.add(new Block5F());
+						break;
+						case 1: initList.add(new Block5P());
+						break;
+						case 2: initList.add(new Block5T());
+						break;
+						case 3: initList.add(new Block5U());
+						break;
+						case 4: initList.add(new Block5W());
+						break;
+						case 5: initList.add(new Block5X());
+						break;
+						case 6: initList.add(new Block5Z());
+						break;
+						case 7: initList.add(new Block5FB());
+						break;
+						case 8: initList.add(new Block5PB());
+						break;
+						case 10: initList.add(new Block5ZB());
+						break;
+					}
+				}
+			}*/
 			for(int i = 0; i < initList.size(); i++)
 			{
 				int rand = (int) (Math.random() * initList.size());

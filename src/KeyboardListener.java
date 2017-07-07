@@ -63,6 +63,7 @@ public class KeyboardListener implements KeyListener
 				{
 					isTitleScreen = false;
 					PlayingField.makeBlockAppear();
+					Flash.cancelTimer();
 				}
 			}
 		}
