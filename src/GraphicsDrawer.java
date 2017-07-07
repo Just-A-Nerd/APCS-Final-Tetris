@@ -78,7 +78,7 @@ public class GraphicsDrawer
 		g2.fill(new Rectangle2D.Double(1001,51,98,98));
 		g2.setPaint(new Color(255,255,255));
 		g2.setFont(new Font(font, 0, 36));
-		g2.drawString("Level", 1010, 45);
+		g2.drawString("Level", 1000, 45);
 		g2.drawString(Integer.toString(PointCounter.getLevel()), 1050 - (Integer.toString(PointCounter.getLevel()).length() * 7), 110);
 		
 		g2.setPaint(new Color(0,0,0));
@@ -127,7 +127,7 @@ public class GraphicsDrawer
 		g2.setFont(new Font("Sans Serif", 0, 80));
 		g2.drawString("Game Over", 1040, 475);
 		g2.setFont(new Font("Sans Serif", 0, 40));
-		g2.drawString("Press Start to Restart", 1050, 550);
+		g2.drawString("Press A to Restart", 1085, 550);
 	}
 	
 	public static void drawTitleScreen(Graphics g)
@@ -139,12 +139,12 @@ public class GraphicsDrawer
 		
 		g2.setPaint(new Color(255,255,255));
 		g2.setFont(new Font("Sans Serif", 0, 80));
-		g2.drawString("Tetris/Pentris", 650, 400);
+		g2.drawString("Tetris/Pentris", 660, 400);
 		
 		if(Flash.getState())
 		{
 			g2.setFont(new Font("Sans Serif", 0, 40));
-			g2.drawString("Press Start to Start", 730, 500);
+			g2.drawString("Press A to Start", 760, 500);
 		}
 		
 		g2.setFont(new Font("Sans Serif", 0, 35));

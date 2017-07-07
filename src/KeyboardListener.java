@@ -50,9 +50,30 @@ public class KeyboardListener implements KeyListener
 				BlockManipulator.Spin("left");
 				
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(spinRightKey))
-				BlockManipulator.Spin("right");
+			{
+				if(isTitleScreen)
+				{
+					isTitleScreen = false;
+					PlayingField.makeBlockAppear();
+					Flash.cancelTimer();
+				}
+				else if(PlayingField.isGameOver())
+				{
+					isTitleScreen = true;
+					Game.Reset();
+				}
+				else
+					BlockManipulator.Spin("right");
+			}
 			
-			if(KeyEvent.getKeyText(e.getKeyCode()).equals(startKey))
+			if(KeyEvent.getKeyText(e.getKeyCode()).equals("G"))
+			{
+				if(!isTitleScreen)
+					PlayingField.setGameOver(true);
+			}
+
+			
+			/*if(KeyEvent.getKeyText(e.getKeyCode()).equals(startKey))
 			{
 				if(PlayingField.isGameOver())
 				{
@@ -65,7 +86,7 @@ public class KeyboardListener implements KeyListener
 					PlayingField.makeBlockAppear();
 					Flash.cancelTimer();
 				}
-			}
+			}*/
 		}
 		if(KeyEvent.getKeyText(e.getKeyCode()).equals(pauseKey) && !isTitleScreen)
 			Game.Pause();
