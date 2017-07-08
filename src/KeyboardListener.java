@@ -34,6 +34,11 @@ public class KeyboardListener implements KeyListener
 				{
 					PlayingField.setGameType(PlayingField.getGameType() - 1);
 				}
+				else if(PlayingField.isGameOver())
+				{
+					isTitleScreen = true;
+					Game.Reset();
+				}
 			}
 			
 			if(KeyEvent.getKeyText(e.getKeyCode()).equals(moveDownKey))
@@ -56,11 +61,6 @@ public class KeyboardListener implements KeyListener
 					isTitleScreen = false;
 					PlayingField.makeBlockAppear();
 					Flash.cancelTimer();
-				}
-				else if(PlayingField.isGameOver())
-				{
-					isTitleScreen = true;
-					Game.Reset();
 				}
 				else
 					BlockManipulator.Spin("right");

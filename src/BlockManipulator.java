@@ -5,13 +5,127 @@ public class BlockManipulator
 	public static void Move(String direction)
 	{
 		boolean canMove = true;
-
+		
 		int moveCount = 0;
 		
-		if(PlayingField.doesHitBottom())
-			return;
+		/*if(PlayingField.doesHitBottom())
+			return;*/
 		
 		if(direction.equals("down"))
+		{
+			for(int i = PlayingField.getField().length - 1; i >= 0; i--)
+			{
+				for(int j = 0; j < PlayingField.getField()[0].length; j++)
+				{
+					//checks if the current blocksquare is the falling block
+					if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
+					{
+						//if(moveCount >= 5)
+						//	canMove = false;
+
+						if(i == PlayingField.getField().length - 1)
+							canMove = false;
+						else if(PlayingField.getField()[i+1][j] != null && PlayingField.getField()[i+1][j].getName() == "x")
+							canMove = false;
+					}	
+				}
+			}
+			
+			if(canMove)
+			{
+				for(int i = PlayingField.getField().length - 1; i >= 0; i--)
+				{
+					for(int j = 0; j < PlayingField.getField()[0].length; j++)
+					{	
+						if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
+						{
+							PlayingField.getField()[i+1][j] = PlayingField.getField()[i][j];
+							PlayingField.getField()[i][j] = null;
+							moveCount++;
+						}
+					}
+				}
+			}
+		}
+		
+		else if(direction.equals("left"))
+		{
+			for(int j = 0; j < PlayingField.getField()[0].length; j++)
+			{
+				for(int i = 0; i < PlayingField.getField().length; i++)
+				{
+					//checks if the current blocksquare is the falling block
+					if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
+					{
+						//if(moveCount >= 5)
+						//	canMove = false;
+						
+						if(j == 0)
+							canMove = false;
+						else if(PlayingField.getField()[i][j-1] != null && PlayingField.getField()[i][j-1].getName() == "x")
+							canMove = false;
+					}
+				}
+			}
+			
+			if(canMove)
+			{
+				for(int j = 0; j < PlayingField.getField()[0].length; j++)
+				{
+					for(int i = 0; i < PlayingField.getField().length; i++)
+					{
+						//checks if the current blocksquare is the falling block
+						if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
+						{
+							PlayingField.getField()[i][j-1] = PlayingField.getField()[i][j];
+							PlayingField.getField()[i][j] = null;
+							moveCount++;
+						}
+					}
+				}
+			}
+		}
+		
+		else if(direction.equals("right"))
+		{
+			for(int j = PlayingField.getField()[0].length - 1; j >= 0; j--)
+			{
+				for(int i = 0; i < PlayingField.getField().length; i++)
+				{
+					//checks if the current blocksquare is the falling block
+					if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
+					{
+						//if(moveCount >= 5)
+						//	canMove = false;
+						
+						if(j == PlayingField.getField()[0].length - 1)
+							canMove = false;
+						else if(PlayingField.getField()[i][j+1] != null && PlayingField.getField()[i][j+1].getName() == "x")
+							canMove = false;
+					}
+				}
+			}
+			
+			if(canMove)
+			{
+				for(int j = PlayingField.getField()[0].length - 1; j >= 0; j--)
+				{
+					for(int i = 0; i < PlayingField.getField().length; i++)
+					{
+						//checks if the current blocksquare is the falling block
+						if(PlayingField.getField()[i][j] != null && PlayingField.getField()[i][j].getName() != "x")
+						{
+							
+							PlayingField.getField()[i][j+1] = PlayingField.getField()[i][j];
+							PlayingField.getField()[i][j] = null;
+							moveCount++;
+						}
+					}
+				}
+			}
+		}
+		
+		/*if(direction.equals("down"))
 		{
 			for(int i = PlayingField.getField().length - 1; i >= 0; i--)
 			{
@@ -93,7 +207,7 @@ public class BlockManipulator
 					}
 				}
 			}
-		}
+		}*/
 	}
 	
 	public static void Spin(String direction)

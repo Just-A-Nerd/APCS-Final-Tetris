@@ -127,7 +127,7 @@ public class GraphicsDrawer
 		g2.setFont(new Font("Sans Serif", 0, 80));
 		g2.drawString("Game Over", 1040, 475);
 		g2.setFont(new Font("Sans Serif", 0, 40));
-		g2.drawString("Press A to Restart", 1085, 550);
+		g2.drawString("Press UP to Restart", 1085, 550);
 	}
 	
 	public static void drawTitleScreen(Graphics g)
