@@ -48,12 +48,14 @@ public class Game
 						PlayingField.hitBottom();
 						genBlock = true;
 						
+						int numLines = PlayingField.clearLines();
+						PointCounter.addLinePoints(numLines);
+						
 						//PointCounter.setLevel(PointCounter.getLevel()+1);
 						//changeTimer();
 					}
 					
-					int numLines = PlayingField.clearLines();
-					PointCounter.addLinePoints(numLines);
+					
 					
 					BlockManipulator.Move("down");
 					
